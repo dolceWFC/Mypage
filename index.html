@@ -148,18 +148,16 @@ footer {
 .about-label {
   font-size: 0.9rem;
   letter-spacing: 3px;
-  opacity: 0.25;      /* ← ちょっと濃く */
-  margin-bottom: 40px;
+  opacity: 0;
+  margin-bottom: 50px;
 }
 
-
 .about-line {
+  display: inline-block;
   font-size: 1.6rem;
   font-weight: 300;
-  opacity: 0;
   margin: 20px 0;
   position: relative;
-  display: inline-block;
 }
 
 /* underline */
@@ -170,9 +168,9 @@ footer {
   bottom: -6px;
   width: 0%;
   height: 1px;
-  background: rgba(255,255,255,0.4);
-  transition: width 1.2s ease;
+  background: rgba(255,255,255,0.5);
 }
+
 
 /* active animation */
 .about-section.active .about-line {
