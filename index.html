@@ -117,6 +117,78 @@ footer {
   font-size: 0.8rem;
   opacity: 0.3;
 }
+
+/* About subtle title */
+.section-title.subtle {
+  opacity: 0.15;
+  font-weight: 300;
+  letter-spacing: 4px;
+}
+
+/* About layout */
+.about-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-wrapper {
+  max-width: 700px;
+  text-align: center;
+}
+
+.about-line {
+  font-size: 1.6rem;
+  font-weight: 300;
+  opacity: 0;
+  margin: 20px 0;
+  position: relative;
+  display: inline-block;
+}
+
+/* underline */
+.about-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 1px;
+  background: rgba(255,255,255,0.4);
+  transition: width 1.2s ease;
+}
+
+/* active animation */
+.about-section.active .about-line {
+  animation: fadeInUp 1s forwards;
+}
+
+.about-section.active .about-line:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.about-section.active .about-line:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.about-section.active .about-line:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.about-section.active .about-line::after {
+  width: 100%;
+}
+
+/* fade animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 0.6;
+    transform: translateY(0);
+  }
+}
+
 </style>
 </head>
 
