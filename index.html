@@ -23,14 +23,17 @@ body {
   color: #f2f2f2;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
-  height: 100vh;
+  height: 100%;
 
+  /* ← ここが重要 */
   background: linear-gradient(
     to bottom,
-    #0e0e0e 0%,
-    #10131a 30%,
-    #0f1c2b 60%,
-    #0a1f3d 100%
+    #000000 0%,        /* 完全な夜 */
+    #000000 25%,       /* Heroほぼ黒 */
+    #0b0f18 45%,       /* うっすら紺 */
+    #0c1830 70%,       /* 深い夜 */
+    #081a3f 85%,       /* 紺青 */
+    #061737 100%       /* 夜更けの青 */
   );
 }
 
