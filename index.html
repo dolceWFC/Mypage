@@ -173,35 +173,55 @@ footer {
 
 
 /* active animation */
-.about-section.active .about-line {
-  animation: fadeInUp 1s forwards;
-}
-
-.about-section.active .about-line:nth-child(1) {
+.about-section.active .fade-item:nth-child(1) {
+  animation: fadeInUp 0.8s forwards;
   animation-delay: 0.2s;
 }
-.about-section.active .about-line:nth-child(2) {
-  animation-delay: 0.6s;
-}
-.about-section.active .about-line:nth-child(3) {
-  animation-delay: 1s;
+
+.about-section.active .fade-item:nth-child(2) {
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: 0.8s;
 }
 
-.about-section.active .about-line::after {
-  width: 100%;
+.about-section.active .fade-item:nth-child(3) {
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: 1.4s;
+}
+
+.about-section.active .fade-item:nth-child(4) {
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: 2.0s;
+}
+
+.about-section.active .about-line:nth-of-type(1)::after {
+  animation: lineGrow 1s forwards;
+  animation-delay: 1.2s;
+}
+
+.about-section.active .about-line:nth-of-type(2)::after {
+  animation: lineGrow 1s forwards;
+  animation-delay: 1.8s;
+}
+
+.about-section.active .about-line:nth-of-type(3)::after {
+  animation: lineGrow 1s forwards;
+  animation-delay: 2.4s;
 }
 
 /* fade animation */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
   to {
     opacity: 0.6;
     transform: translateY(0);
   }
 }
+
+@keyframes lineGrow {
+  to {
+    width: 100%;
+  }
+}
+
 
 </style>
 </head>
