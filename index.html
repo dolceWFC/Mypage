@@ -363,6 +363,36 @@ sections.forEach(section => {
   observer.observe(section);
 });
 
+const form = document.getElementById("contactForm");
+const message = document.getElementById("formMessage");
+
+form.addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const data = new FormData(form);
+
+  try {
+    const response = await fetch("https://formspree.io/f/YOURENDPOINT", {
+      method: "POST",
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      message.style.display = "block";  // メッセージ表示
+      form.reset();                     // フォームをクリア
+    } else {
+      message.style.color = "#f33";
+      message.textContent = "Oops! There was a problem.";
+      message.style.display = "block";
+    }
+  } catch (error) {
+    message.style.color = "#f33";
+    message.textContent = "Oops! Something went wrong.";
+    message.style.display = "block";
+  }
+});
+
 // 自動年号
 document.getElementById("year").textContent = new Date().getFullYear();
 </script>
