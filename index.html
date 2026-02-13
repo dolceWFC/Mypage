@@ -209,6 +209,47 @@ footer {
   animation-delay: 3.6s;
 }
 
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.contact-form label {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  color: #ccc;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-top: 6px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #0c1830;
+  color: #f2f2f2;
+}
+
+.contact-form button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #081a3f;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #0b0f18;
+}
+
 /* fade animation */
 @keyframes fadeInUp {
   to {
@@ -269,9 +310,30 @@ footer {
 
 <section>
   <div class="section-title">Contact</div>
-  <div class="contact-placeholder">
-    Contact form will be implemented soon.
-  </div>
+  
+  <form action="https://formspree.io/f/YOURENDPOINT" method="POST" class="contact-form">
+    <label>
+      Name
+      <input type="text" name="name" required>
+    </label>
+    
+    <label>
+      Email
+      <input type="email" name="_replyto" required>
+    </label>
+    
+    <label>
+      Message
+      <textarea name="message" rows="6" required></textarea>
+    </label>
+    
+    <button type="submit">Send</button>
+  </form>
+
+  <footer>
+    © <span id="year"></span> Dolce-Rhea
+  </footer>
+</section>
 
   <footer>
     © <span id="year"></span> Dolce-Rhea
