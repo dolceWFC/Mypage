@@ -118,22 +118,22 @@ section.active {
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-.leave-to-left {
+.slide-out-left {
   transform: translateX(-80px);
   opacity: 0;
 }
 
-.leave-to-right {
+.slide-out-right {
   transform: translateX(80px);
   opacity: 0;
 }
 
-.enter-from-left {
+.slide-in-left {
   transform: translateX(-80px);
   opacity: 0;
 }
 
-.enter-from-right {
+.slide-in-right {
   transform: translateX(80px);
   opacity: 0;
 }
@@ -695,13 +695,13 @@ const nextCar = document.getElementById("nextCar");
 const garageContent = document.querySelector(".garage-content");
 
 function updateCar(index, direction) {
-  const outClass = direction === "next"
-    ? "leave-to-left"
-    : "leave-to-right";
+  const outClass = direction === "prev"
+    ? "slide-out-left"
+    : "slide-out-right";
 
-  const inClass = direction === "next"
-    ? "enter-from-right"
-    : "enter-from-left";
+  const inClass = direction === "prev"
+    ? "slide-in-right"
+    : "slide-in-left";
 
   garageContent.classList.add(outClass);
 
