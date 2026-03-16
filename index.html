@@ -138,11 +138,6 @@ section.active {
   opacity: 0;
 }
 
-.garage-content.fade-out {
-  opacity: 0;
-  transform: translateY(16px);
-}
-
 .garage-label {
   max-width: 760px;
   margin: 0 auto 26px;
@@ -700,29 +695,33 @@ const nextCar = document.getElementById("nextCar");
 const garageContent = document.querySelector(".garage-content");
 
 function updateCar(index, direction) {
-  const outClass = direction === "next" ? "slide-out-right" : "slide-out-left";
-  const inClass = direction === "next" ? "slide-in-left" : "slide-in-right";
+
+  const outClass = direction === "next"
+    ? "slide-out-right"
+    : "slide-out-left";
+
+  const inClass = direction === "next"
+    ? "slide-in-left"
+    : "slide-in-right";
 
   garageContent.classList.add(outClass);
 
   setTimeout(() => {
-    garageContent.classList.remove(outClass);
 
-    garageContent.classList.add(inClass);
+    garageContent.classList.remove(outClass);
 
     carImage.src = cars[index].image;
     carImage.alt = cars[index].alt;
     carTitle.textContent = cars[index].title;
     carDescription.textContent = cars[index].description;
 
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        garageContent.style.opacity = "1";
-        garageContent.style.transform = "translateX(0)";
-        garageContent.classList.remove(inClass);
-      });
-    });
-  }, 200);
+    garageContent.classList.add(inClass);
+
+    setTimeout(() => {
+      garageContent.classList.remove(inClass);
+    }, 20);
+
+  }, 400);
 }
 
 prevCar.addEventListener("click", () => {
