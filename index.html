@@ -136,6 +136,7 @@ section.active {
   justify-content: center;
   align-items: center;
   margin: 0 auto 30px;
+  position: relative;
 }
 
 .garage-image {
@@ -494,13 +495,15 @@ footer > div:first-child {
 ========================= -->
 <section class="garage-section" id="garage">
   <div class="garage-slider">
-    <button class="garage-arrow left" id="prevCar" aria-label="前の車へ">&#10094;</button>
-
     <div class="garage-content">
       <p class="section-label garage-label">Garage</p>
 
       <div class="garage-image-wrap">
+        <button class="garage-arrow left" id="prevCar" aria-label="前の車へ">&#10094;</button>
+
         <img id="carImage" src="images/156gta.jpg" alt="Alfa Romeo 156 GTA 6MT" class="garage-image">
+
+        <button class="garage-arrow right" id="nextCar" aria-label="次の車へ">&#10095;</button>
       </div>
 
       <div class="garage-text">
@@ -511,8 +514,6 @@ footer > div:first-child {
         </p>
       </div>
     </div>
-
-    <button class="garage-arrow right" id="nextCar" aria-label="次の車へ">&#10095;</button>
   </div>
 </section>
 
