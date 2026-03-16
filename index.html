@@ -8,6 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+/* =========================
+   Base
+========================= */
 * {
   margin: 0;
   padding: 0;
@@ -24,7 +27,6 @@ body {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100%;
-
   background: linear-gradient(
     to bottom,
     #000000 0%,
@@ -50,23 +52,25 @@ section {
   transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .section-label {
   display: block;
   width: 100%;
   margin: 0 auto 18px;
   text-align: left;
-
   font-size: 0.85rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
 }
 
-section.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
+/* =========================
+   Hero
+========================= */
 .hero {
   align-items: center;
   text-align: center;
@@ -84,231 +88,11 @@ section.active {
   opacity: 0.45;
 }
 
-.links {
-  margin-top: 50px;
-}
-
-.links a {
-  margin: 0 20px;
-  text-decoration: none;
-  color: #777;
-  transition: 0.3s ease;
-}
-
-.links a:hover {
-  color: #fff;
-}
-
-.section-title {
-  position: absolute;
-  top: 40px;
-  left: 60px;
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 3px;
-}
-
-.about-text,
-.blog-placeholder,
-.contact-placeholder {
-  font-size: 1.4rem;
-  font-weight: 300;
-  opacity: 0.8;
-  max-width: 600px;
-}
-
-/* Fixed Footer */
-footer {
-  position: fixed;
-  bottom: 20px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 0.8rem;
-  z-index: 1000;
-}
-
-.footer-links {
-  margin-top: 6px;
-}
-
-.footer-links a {
-  margin: 0 12px;
-  text-decoration: none;
-  color: #777;
-  transition: 0.3s ease;
-}
-
-.footer-links a:hover {
-  color: #fff;
-}
-
-footer > div:first-child {
-  opacity: 0.6;
-  font-weight: 300;
-  letter-spacing: 1px;
-}
-
-/* About subtle title */
-.section-title.subtle {
-  opacity: 0.15;
-  font-weight: 300;
-  letter-spacing: 4px;
-}
-
-/* About layout */
-.about-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 1;
-  transform: none;
-}
-
-.about-wrapper {
-  text-align: center;
-  max-width: 700px;
-}
-
-.fade-item {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.about-label {
-  font-size: 0.9rem;
-  letter-spacing: 3px;
-  opacity: 0;
-  margin-bottom: 50px;
-}
-
-.about-line {
-  display: block;
-  width: fit-content;
-  font-size: 1.6rem;
-  font-weight: 300;
-  margin: 20px auto;
-  position: relative;
-}
-
-.about-line::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0%;
-  height: 1px;
-  background: rgba(255,255,255,0.5);
-}
-
-.about-section.active .fade-item:nth-child(1) {
-  animation: fadeInUp 1.4s forwards;
-  animation-delay: 0.2s;
-}
-.about-section.active .fade-item:nth-child(2) {
-  animation: fadeInUp 1.4s forwards;
-  animation-delay: 1.1s;
-}
-.about-section.active .fade-item:nth-child(3) {
-  animation: fadeInUp 1.4s forwards;
-  animation-delay: 2.1s;
-}
-.about-section.active .fade-item:nth-child(4) {
-  animation: fadeInUp 1.4s forwards;
-  animation-delay: 3.5s;
-}
-.about-section.active .about-line:nth-of-type(1)::after {
-  animation: lineGrow 1s forwards;
-  animation-delay: 1.2s;
-}
-.about-section.active .about-line:nth-of-type(2)::after {
-  animation: lineGrow 1.3s forwards;
-  animation-delay: 2.2s;
-}
-.about-section.active .about-line:nth-of-type(3)::after {
-  animation: lineGrow 1.5s forwards;
-  animation-delay: 3.6s;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 0.6;
-    transform: translateY(0);
-  }
-}
-
-@keyframes lineGrow {
-  to {
-    width: 100%;
-  }
-}
-
-/* Contact Form Styles */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.contact-label {
-  max-width: 600px;
-}
-
-.contact-form label {
-  margin-bottom: 20px;
-  font-size: 1rem;
-  display: flex;
-  flex-direction: column;
-  color: #ccc;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  margin-top: 6px;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #555;
-  border-radius: 4px;
-  background-color: #0c1830;
-  color: #f2f2f2;
-}
-
-.contact-form button {
-  width: 100%;
-  padding: 12px 20px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #081a3f;
-  color: #fff;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.contact-form button:hover {
-  background-color: #0b0f18;
-}
-#formMessage {
-  text-align: center;
-  margin-top: 20px;
-  display: none;
-}
-
-.about-section {
-  display: none;
-}
-
-.blog-section {
-  display: none;
-}
-
-/* ガレージセクションのCSS */
+/* =========================
+   Garage
+========================= */
 .garage-section {
-  height: auto !important;
   min-height: 100vh;
-  scroll-snap-align: start;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -339,6 +123,10 @@ footer > div:first-child {
   transform: translateY(16px);
 }
 
+.garage-label {
+  max-width: 760px;
+}
+
 .garage-image-wrap {
   width: 100%;
   display: flex;
@@ -359,10 +147,6 @@ footer > div:first-child {
   margin: 0 auto;
   padding: 0 8px;
   margin-top: 30px;
-}
-
-.garage-label {
-  max-width: 760px;
 }
 
 .garage-text h2 {
@@ -412,7 +196,108 @@ footer > div:first-child {
   right: -10px;
 }
 
+/* =========================
+   Contact
+========================= */
+.contact-section {
+  min-height: 100vh;
+}
+
+.contact-label {
+  max-width: 600px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form label {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  color: #ccc;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #0c1830;
+  color: #f2f2f2;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #081a3f;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #0b0f18;
+}
+
+#formMessage {
+  text-align: center;
+  margin-top: 20px;
+  display: none;
+}
+
+/* =========================
+   Footer
+========================= */
+footer {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  z-index: 1000;
+}
+
+footer > div:first-child {
+  opacity: 0.6;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.footer-links {
+  margin-top: 6px;
+}
+
+.footer-links a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: #777;
+  transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+/* =========================
+   Responsive
+========================= */
 @media (max-width: 980px) {
+  section {
+    padding: 40px 24px;
+  }
+
   .garage-section {
     padding: 80px 24px 120px;
   }
@@ -457,6 +342,10 @@ footer > div:first-child {
 }
 
 @media (max-width: 640px) {
+  section {
+    padding: 32px 18px;
+  }
+
   .garage-section {
     padding: 70px 18px 110px;
   }
@@ -496,48 +385,24 @@ footer > div:first-child {
 
 <body>
 
+<!-- =========================
+     Hero
+========================= -->
 <section class="hero">
   <h1>Dolce-Rhea</h1>
   <p>Reflecting on my life — "If" and "Lie".</p>
 </section>
 
-<section class="about-section">
-  <div class="about-wrapper">
-
-    <div class="about-label fade-item">About here</div>
-
-    <p class="about-line fade-item">
-      Dolce-Rheaは
-    </p>
-
-    <p class="about-line fade-item">
-      クルマと音楽、そして沈んでいく思索の海。
-    </p>
-
-    <p class="about-line fade-item">
-      IfとLieに塗れながら、まだ見ぬ場所を、探している。
-    </p>
-
-  </div>
-</section>
-
-<section class="blog-section">
-  <div class="section-title">Blog</div>
-  <div class="blog-placeholder">
-    Articles coming soon...
-  </div>
-</section>
-
-<!-- ガレージセクションのhtml -->
+<!-- =========================
+     Garage
+========================= -->
 <section class="garage-section" id="garage">
   <div class="garage-slider">
-    <button class="garage-arrow left" id="prevCar" aria-label="前の車へ">
-      &#10094;
-    </button>
+    <button class="garage-arrow left" id="prevCar" aria-label="前の車へ">&#10094;</button>
 
     <div class="garage-content">
       <p class="section-label garage-label">Garage</p>
-      
+
       <div class="garage-image-wrap">
         <img id="carImage" src="images/156gta.jpg" alt="Alfa Romeo 156 GTA 6MT" class="garage-image">
       </div>
@@ -551,31 +416,32 @@ footer > div:first-child {
       </div>
     </div>
 
-    <button class="garage-arrow right" id="nextCar" aria-label="次の車へ">
-      &#10095;
-    </button>
+    <button class="garage-arrow right" id="nextCar" aria-label="次の車へ">&#10095;</button>
   </div>
 </section>
 
-<section>
+<!-- =========================
+     Contact
+========================= -->
+<section class="contact-section">
   <div class="section-label contact-label">Contact</div>
-  
+
   <form id="contactForm" class="contact-form">
     <label>
       Name
       <input type="text" name="name" required>
     </label>
-    
+
     <label>
       Email
       <input type="email" name="_replyto" required>
     </label>
-    
+
     <label>
       Message
       <textarea name="message" rows="6" required></textarea>
     </label>
-    
+
     <button type="submit">Send</button>
   </form>
 
@@ -584,8 +450,22 @@ footer > div:first-child {
   </div>
 </section>
 
-<!-- コンタクトセクションのスクリプト -->
+<!-- =========================
+     Footer
+========================= -->
+<footer>
+  <div>© <span id="year"></span> Dolce-Rhea</div>
+  <div class="footer-links">
+    <a href="https://github.com/dolceWFC" target="_blank">GitHub</a>
+    <a href="https://x.com/rhea_rue_" target="_blank">Twitter</a>
+    <a href="https://tsukubanyan.racing/" target="_blank">HP</a>
+  </div>
+</footer>
+
 <script>
+/* =========================
+   Section Fade-in
+========================= */
 const sections = document.querySelectorAll("section");
 
 const observer = new IntersectionObserver((entries) => {
@@ -604,16 +484,17 @@ sections.forEach(section => {
   observer.observe(section);
 });
 
-// ------------------------------
-// Contact Form送信処理（非同期・ページ遷移なし）
-window.addEventListener('DOMContentLoaded', () => {
+/* =========================
+   Contact Form
+========================= */
+window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("year").textContent = new Date().getFullYear();
-  
+
   const form = document.getElementById("contactForm");
   const message = document.getElementById("formMessage");
 
   form.addEventListener("submit", async function(e) {
-    e.preventDefault(); // ページ遷移を止める
+    e.preventDefault();
 
     const data = new FormData(form);
 
@@ -621,12 +502,13 @@ window.addEventListener('DOMContentLoaded', () => {
       const response = await fetch("https://formspree.io/f/xpqjpbyq", {
         method: "POST",
         body: data,
-        headers: { 'Accept': 'application/json' }
+        headers: { Accept: "application/json" }
       });
 
       if (response.ok) {
         message.style.display = "block";
         message.style.color = "#0f0";
+        message.textContent = "Thank you! Your message has been sent.";
         form.reset();
       } else {
         message.style.display = "block";
@@ -640,78 +522,68 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-</script>
 
-<!-- ガレージセクションのスクリプト -->
-<script>
-  const cars = [
-    {
-      title: "Alfa Romeo 156 GTA 6MT",
-      image: "images/156gta.jpg",
-      alt: "Alfa Romeo 156 GTA 6MT",
-      description: "Busso V6を積んだ、強烈な個性を持つ一台。自分の中で特別な存在であり、走りも佇まいも含めて深く惹かれている車です。"
-    },
-    {
-      title: "Alfa Romeo MiTo",
-      image: "images/mito.jpg",
-      alt: "Alfa Romeo MiTo",
-      description: "コンパクトなサイズにアルファらしい表情が詰まった一台。日常に寄り添いながらも、しっかり趣味性を感じられるところが魅力です。"
-    },
-    {
-      title: "Mazda Roadster NB",
-      image: "images/nb.jpg",
-      alt: "Mazda Roadster NB",
-      description: "軽さとシンプルさがそのまま楽しさにつながる車。肩肘張らずに走る喜びを味わえる、純度の高い存在です。"
-    },
-    {
-      title: "Mitsubishi Colt Ralliart Version R",
-      image: "images/colt.jpg",
-      alt: "Mitsubishi Colt Ralliart Version R",
-      description: "小柄なボディに熱さを詰め込んだホットハッチ。鋭さと実用性が同居していて、独特の面白さを持っています。"
-    }
-  ];
-
-  let currentIndex = 0;
-
-  const carImage = document.getElementById("carImage");
-  const carTitle = document.getElementById("carTitle");
-  const carDescription = document.getElementById("carDescription");
-  const prevCar = document.getElementById("prevCar");
-  const nextCar = document.getElementById("nextCar");
-  const garageContent = document.querySelector(".garage-content");
-
-  function updateCar(index) {
-    garageContent.classList.add("fade-out");
-
-    setTimeout(() => {
-      carImage.src = cars[index].image;
-      carImage.alt = cars[index].alt;
-      carTitle.textContent = cars[index].title;
-      carDescription.textContent = cars[index].description;
-
-      garageContent.classList.remove("fade-out");
-    }, 220);
+/* =========================
+   Garage Slider
+========================= */
+const cars = [
+  {
+    title: "Alfa Romeo 156 GTA 6MT",
+    image: "images/156gta.jpg",
+    alt: "Alfa Romeo 156 GTA 6MT",
+    description: "Busso V6を積んだ、強烈な個性を持つ一台。自分の中で特別な存在であり、走りも佇まいも含めて深く惹かれている車です。"
+  },
+  {
+    title: "Alfa Romeo MiTo",
+    image: "images/mito.jpg",
+    alt: "Alfa Romeo MiTo",
+    description: "コンパクトなサイズにアルファらしい表情が詰まった一台。日常に寄り添いながらも、しっかり趣味性を感じられるところが魅力です。"
+  },
+  {
+    title: "Mazda Roadster NB",
+    image: "images/nb.jpg",
+    alt: "Mazda Roadster NB",
+    description: "軽さとシンプルさがそのまま楽しさにつながる車。肩肘張らずに走る喜びを味わえる、純度の高い存在です。"
+  },
+  {
+    title: "Mitsubishi Colt Ralliart Version R",
+    image: "images/colt.jpg",
+    alt: "Mitsubishi Colt Ralliart Version R",
+    description: "小柄なボディに熱さを詰め込んだホットハッチ。鋭さと実用性が同居していて、独特の面白さを持っています。"
   }
+];
 
-  prevCar.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + cars.length) % cars.length;
-    updateCar(currentIndex);
-  });
+let currentIndex = 0;
 
-  nextCar.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % cars.length;
-    updateCar(currentIndex);
-  });
+const carImage = document.getElementById("carImage");
+const carTitle = document.getElementById("carTitle");
+const carDescription = document.getElementById("carDescription");
+const prevCar = document.getElementById("prevCar");
+const nextCar = document.getElementById("nextCar");
+const garageContent = document.querySelector(".garage-content");
+
+function updateCar(index) {
+  garageContent.classList.add("fade-out");
+
+  setTimeout(() => {
+    carImage.src = cars[index].image;
+    carImage.alt = cars[index].alt;
+    carTitle.textContent = cars[index].title;
+    carDescription.textContent = cars[index].description;
+    garageContent.classList.remove("fade-out");
+  }, 220);
+}
+
+prevCar.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + cars.length) % cars.length;
+  updateCar(currentIndex);
+});
+
+nextCar.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % cars.length;
+  updateCar(currentIndex);
+});
 </script>
-
-<footer>
-  <div>© <span id="year"></span> Dolce-Rhea</div>
-  <div class="footer-links">
-    <a href="https://github.com/dolceWFC" target="_blank">GitHub</a>
-    <a href="https://x.com/rhea_rue_" target="_blank">Twitter</a>
-    <a href="https://tsukubanyan.racing/" target="_blank">HP</a>
-  </div>
-</footer>
 
 </body>
 </html>
