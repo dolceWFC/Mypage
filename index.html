@@ -286,6 +286,152 @@ footer > div:first-child {
 .blog-section {
   display: none;
 }
+
+/* ガレージセクションのCSS */
+.garage-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+  position: relative;
+}
+
+.garage-slider {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.garage-content {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.garage-content.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.garage-image-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.garage-image {
+  width: 100%;
+  max-width: 820px;
+  max-height: 460px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.garage-text {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.garage-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 12px;
+}
+
+.garage-text h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: #f2f2f2;
+}
+
+.garage-text p {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.garage-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 62px;
+  height: 62px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 2rem;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
+.garage-arrow:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.garage-arrow.left {
+  left: 0;
+}
+
+.garage-arrow.right {
+  right: 0;
+}
+
+@media (max-width: 980px) {
+  .garage-slider {
+    padding: 0 70px;
+  }
+
+  .garage-image {
+    max-height: 360px;
+  }
+}
+
+@media (max-width: 640px) {
+  .garage-section {
+    padding: 60px 20px;
+  }
+
+  .garage-slider {
+    padding: 0 54px;
+  }
+
+  .garage-arrow {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+  }
+
+  .garage-image {
+    max-height: 260px;
+    border-radius: 14px;
+  }
+
+  .garage-text h2 {
+    font-size: 1.7rem;
+  }
+
+  .garage-text p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+}
 </style>
 </head>
 
@@ -323,6 +469,34 @@ footer > div:first-child {
   </div>
 </section>
 
+<!-- ガレージセクションのhtml -->
+<section class="garage-section" id="garage">
+  <div class="garage-slider">
+    <button class="garage-arrow left" id="prevCar" aria-label="前の車へ">
+      &#10094;
+    </button>
+
+    <div class="garage-content">
+      <div class="garage-image-wrap">
+        <img id="carImage" src="images/156gta.jpg" alt="Alfa Romeo 156 GTA 6MT" class="garage-image">
+      </div>
+
+      <div class="garage-text">
+        <p class="garage-label">Garage</p>
+        <h2 id="carTitle">Alfa Romeo 156 GTA 6MT</h2>
+        <p id="carDescription">
+          Busso V6を積んだ、強烈な個性を持つ一台。
+          自分の中で特別な存在であり、走りも佇まいも含めて深く惹かれている車です。
+        </p>
+      </div>
+    </div>
+
+    <button class="garage-arrow right" id="nextCar" aria-label="次の車へ">
+      &#10095;
+    </button>
+  </div>
+</section>
+
 <section>
   <div class="section-title">Contact</div>
   
@@ -350,6 +524,7 @@ footer > div:first-child {
   </div>
 </section>
 
+<!-- コンタクトセクションのスクリプト -->
 <script>
 const sections = document.querySelectorAll("section");
 
@@ -407,6 +582,68 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+</script>
+
+<!-- ガレージセクションのスクリプト -->
+<script>
+  const cars = [
+    {
+      title: "Alfa Romeo 156 GTA 6MT",
+      image: "images/156gta.jpg",
+      alt: "Alfa Romeo 156 GTA 6MT",
+      description: "Busso V6を積んだ、強烈な個性を持つ一台。自分の中で特別な存在であり、走りも佇まいも含めて深く惹かれている車です。"
+    },
+    {
+      title: "Alfa Romeo MiTo",
+      image: "images/mito.jpg",
+      alt: "Alfa Romeo MiTo",
+      description: "コンパクトなサイズにアルファらしい表情が詰まった一台。日常に寄り添いながらも、しっかり趣味性を感じられるところが魅力です。"
+    },
+    {
+      title: "Mazda Roadster NB",
+      image: "images/nb.jpg",
+      alt: "Mazda Roadster NB",
+      description: "軽さとシンプルさがそのまま楽しさにつながる車。肩肘張らずに走る喜びを味わえる、純度の高い存在です。"
+    },
+    {
+      title: "Mitsubishi Colt Ralliart Version R",
+      image: "images/colt.jpg",
+      alt: "Mitsubishi Colt Ralliart Version R",
+      description: "小柄なボディに熱さを詰め込んだホットハッチ。鋭さと実用性が同居していて、独特の面白さを持っています。"
+    }
+  ];
+
+  let currentIndex = 0;
+
+  const carImage = document.getElementById("carImage");
+  const carTitle = document.getElementById("carTitle");
+  const carDescription = document.getElementById("carDescription");
+  const prevCar = document.getElementById("prevCar");
+  const nextCar = document.getElementById("nextCar");
+  const garageContent = document.querySelector(".garage-content");
+
+  function updateCar(index) {
+    garageContent.classList.add("fade-out");
+
+    setTimeout(() => {
+      carImage.src = cars[index].image;
+      carImage.alt = cars[index].alt;
+      carTitle.textContent = cars[index].title;
+      carDescription.textContent = cars[index].description;
+
+      garageContent.classList.remove("fade-out");
+    }, 220);
+  }
+
+  prevCar.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + cars.length) % cars.length;
+    updateCar(currentIndex);
+  });
+
+  nextCar.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % cars.length;
+    updateCar(currentIndex);
+  });
 </script>
 
 <footer>
