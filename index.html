@@ -327,6 +327,7 @@ footer > div:first-child {
   display: flex;
   justify-content: center;
   margin-bottom: 42px;
+  position:relative;
 }
 
 .garage-image {
@@ -344,16 +345,17 @@ footer > div:first-child {
   margin-top: 30px;
 }
 
-.garage-label {
-  position: absolute;
-  top: 6px;
-  left: 6px;
+.garage-label{
+  position:absolute;
+  top:18px;
+  left:24px;
 
-  font-size: 0.85rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.65);
-  z-index: 20;
+  font-size:0.85rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.7);
+
+  z-index:20;
 }
 
 .garage-text h2 {
@@ -528,11 +530,11 @@ footer > div:first-child {
 
     <div class="garage-content">
       <div class="garage-image-wrap">
+        <p class="garage-label">Garage</p>
         <img id="carImage" src="images/156gta.jpg" alt="Alfa Romeo 156 GTA 6MT" class="garage-image">
       </div>
 
       <div class="garage-text">
-        <p class="garage-label">Garage</p>
         <h2 id="carTitle">Alfa Romeo 156 GTA 6MT</h2>
         <p id="carDescription">
           Busso V6を積んだ、強烈な個性を持つ一台。
