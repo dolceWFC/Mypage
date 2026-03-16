@@ -50,6 +50,18 @@ section {
   transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.section-label {
+  display: block;
+  width: 100%;
+  margin: 0 auto 18px;
+  text-align: left;
+
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
 section.active {
   opacity: 1;
   transform: translateY(0);
@@ -239,12 +251,8 @@ footer > div:first-child {
   margin: 50px auto;
 }
 
-.contact-form label {
-  margin-bottom: 20px;
-  font-size: 1rem;
-  display: flex;
-  flex-direction: column;
-  color: #ccc;
+.contact-label {
+  max-width: 600px;
 }
 
 .contact-form input,
@@ -345,16 +353,7 @@ footer > div:first-child {
 }
 
 .garage-label {
-  display: block;
-  width: 100%;
   max-width: 760px;
-  margin: 0 auto 18px;
-  text-align: left;
-
-  font-size: 0.85rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
 }
 
 .garage-text h2 {
@@ -528,7 +527,7 @@ footer > div:first-child {
     </button>
 
     <div class="garage-content">
-      <p class="garage-label">Garage</p>
+      <p class="section-label garage-label">Garage</p>
       
       <div class="garage-image-wrap">
         <img id="carImage" src="images/156gta.jpg" alt="Alfa Romeo 156 GTA 6MT" class="garage-image">
@@ -550,7 +549,7 @@ footer > div:first-child {
 </section>
 
 <section>
-  <div class="section-title">Contact</div>
+  <div class="section-label contact-label">Contact</div>
   
   <form id="contactForm" class="contact-form">
     <label>
