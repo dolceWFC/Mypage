@@ -695,19 +695,17 @@ const nextCar = document.getElementById("nextCar");
 const garageContent = document.querySelector(".garage-content");
 
 function updateCar(index, direction) {
-
   const outClass = direction === "next"
-    ? "slide-out-right"
-    : "slide-out-left";
+    ? "slide-out-left"
+    : "slide-out-right";
 
   const inClass = direction === "next"
-    ? "slide-in-left"
-    : "slide-in-right";
+    ? "slide-in-right"
+    : "slide-in-left";
 
   garageContent.classList.add(outClass);
 
   setTimeout(() => {
-
     garageContent.classList.remove(outClass);
 
     carImage.src = cars[index].image;
@@ -717,10 +715,9 @@ function updateCar(index, direction) {
 
     garageContent.classList.add(inClass);
 
-    setTimeout(() => {
+    requestAnimationFrame(() => {
       garageContent.classList.remove(inClass);
-    }, 20);
-
+    });
   }, 400);
 }
 
