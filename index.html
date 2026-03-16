@@ -197,6 +197,65 @@ section.active {
 }
 
 /* =========================
+   Links
+========================= */
+.links-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.links-inner {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.links-label {
+  max-width: 900px;
+}
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.link-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 150px;
+  padding: 24px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  text-decoration: none;
+  color: #f2f2f2;
+  transition: 0.25s ease;
+  backdrop-filter: blur(6px);
+}
+
+.link-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.24);
+  transform: translateY(-4px);
+}
+
+.link-name {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #f2f2f2;
+}
+
+.link-desc {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* =========================
    Contact
 ========================= */
 .contact-section {
@@ -339,6 +398,13 @@ footer > div:first-child {
   .garage-arrow.right {
     right: 0;
   }
+　.links-inner {
+  　max-width: 100%;
+　}
+　
+　.links-grid {
+  　gap: 16px;
+　}
 }
 
 @media (max-width: 640px) {
@@ -379,6 +445,24 @@ footer > div:first-child {
     height: 46px;
     font-size: 1.6rem;
   }
+　.links-grid {
+   grid-template-columns: 1fr;
+　}
+   
+　.link-card {
+   min-height: 130px;
+   padding: 20px 22px;
+   border-radius: 16px;
+　}
+   
+　.link-name {
+   font-size: 1.15rem;
+　}
+   
+   .link-desc {
+     font-size: 0.9rem;
+     line-height: 1.7;
+   }
 }
 </style>
 </head>
@@ -417,6 +501,37 @@ footer > div:first-child {
     </div>
 
     <button class="garage-arrow right" id="nextCar" aria-label="次の車へ">&#10095;</button>
+  </div>
+</section>
+
+<!-- =========================
+     Links
+========================= -->
+<section class="links-section">
+  <div class="links-inner">
+    <div class="section-label links-label">Links</div>
+
+    <div class="links-grid">
+      <a href="https://github.com/dolceWFC" target="_blank" class="link-card">
+        <span class="link-name">GitHub</span>
+        <span class="link-desc">Code, projects, and repositories</span>
+      </a>
+
+      <a href="https://x.com/rhea_rue_" target="_blank" class="link-card">
+        <span class="link-name">Twitter</span>
+        <span class="link-desc">Thoughts, updates, and daily notes</span>
+      </a>
+
+      <a href="https://tsukubanyan.racing/" target="_blank" class="link-card">
+        <span class="link-name">HP</span>
+        <span class="link-desc">Related site and external page</span>
+      </a>
+
+      <a href="#" class="link-card">
+        <span class="link-name">Blog</span>
+        <span class="link-desc">Articles and writing archive</span>
+      </a>
+    </div>
   </div>
 </section>
 
