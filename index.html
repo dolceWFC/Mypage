@@ -115,7 +115,17 @@ section.active {
   text-align: center;
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.45s ease, transform 0.45s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.slide-left-out {
+  transform: translateX(-80px);
+  opacity: 0;
+}
+
+.slide-right-out {
+  transform: translateX(80px);
+  opacity: 0;
 }
 
 .garage-content.fade-out {
@@ -679,26 +689,34 @@ const prevCar = document.getElementById("prevCar");
 const nextCar = document.getElementById("nextCar");
 const garageContent = document.querySelector(".garage-content");
 
-function updateCar(index) {
-  garageContent.classList.add("fade-out");
+function updateCar(index, direction) {
+
+  if(direction === "next"){
+    garageContent.classList.add("slide-left-out");
+  } else {
+    garageContent.classList.add("slide-right-out");
+  }
 
   setTimeout(() => {
+
     carImage.src = cars[index].image;
     carImage.alt = cars[index].alt;
     carTitle.textContent = cars[index].title;
     carDescription.textContent = cars[index].description;
-    garageContent.classList.remove("fade-out");
+
+    garageContent.classList.remove("slide-left-out","slide-right-out");
+
   }, 220);
 }
 
 prevCar.addEventListener("click", () => {
   currentIndex = (currentIndex - 1 + cars.length) % cars.length;
-  updateCar(currentIndex);
+  updateCar(currentIndex,"prev");
 });
 
 nextCar.addEventListener("click", () => {
   currentIndex = (currentIndex + 1) % cars.length;
-  updateCar(currentIndex);
+  updateCar(currentIndex,"next");
 });
 </script>
 
