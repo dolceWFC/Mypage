@@ -37,7 +37,7 @@ body {
 }
 
 section {
-  height: 100vh;
+  min-height: 100vh;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
@@ -327,7 +327,6 @@ footer > div:first-child {
   display: flex;
   justify-content: center;
   margin-bottom: 42px;
-  position:relative;
 }
 
 .garage-image {
@@ -345,17 +344,17 @@ footer > div:first-child {
   margin-top: 30px;
 }
 
-.garage-label{
-  position:absolute;
-  top:18px;
-  left:24px;
+.garage-label {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto 18px;
+  text-align: left;
 
-  font-size:0.85rem;
-  letter-spacing:0.22em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,0.7);
-
-  z-index:20;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .garage-text h2 {
@@ -529,8 +528,9 @@ footer > div:first-child {
     </button>
 
     <div class="garage-content">
+      <p class="garage-label">Garage</p>
+      
       <div class="garage-image-wrap">
-        <p class="garage-label">Garage</p>
         <img id="carImage" src="images/156gta.jpg" alt="Alfa Romeo 156 GTA 6MT" class="garage-image">
       </div>
 
@@ -596,13 +596,11 @@ sections.forEach(section => {
   observer.observe(section);
 });
 
-// 自動年号
-document.getElementById("year").textContent = new Date().getFullYear();
-
-
 // ------------------------------
 // Contact Form送信処理（非同期・ページ遷移なし）
 window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById("year").textContent = new Date().getFullYear();
+  
   const form = document.getElementById("contactForm");
   const message = document.getElementById("formMessage");
 
