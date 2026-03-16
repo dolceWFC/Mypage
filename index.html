@@ -248,15 +248,24 @@ footer > div:first-child {
   display: flex;
   flex-direction: column;
   max-width: 600px;
-  margin: 50px auto;
+  margin: 0 auto;
 }
 
 .contact-label {
   max-width: 600px;
 }
 
+.contact-form label {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  color: #ccc;
+}
+
 .contact-form input,
 .contact-form textarea {
+  width: 100%;
   margin-top: 6px;
   padding: 10px;
   font-size: 1rem;
@@ -267,6 +276,7 @@ footer > div:first-child {
 }
 
 .contact-form button {
+  width: 100%;
   padding: 12px 20px;
   font-size: 1rem;
   border: none;
@@ -280,7 +290,6 @@ footer > div:first-child {
 .contact-form button:hover {
   background-color: #0b0f18;
 }
-
 #formMessage {
   text-align: center;
   margin-top: 20px;
