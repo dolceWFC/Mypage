@@ -315,7 +315,6 @@ footer > div:first-child {
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.45s ease, transform 0.45s ease;
-  position: relative;
 }
 
 .garage-content.fade-out {
@@ -347,13 +346,14 @@ footer > div:first-child {
 
 .garage-label {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 6px;
+  left: 6px;
 
   font-size: 0.85rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.65);
+  z-index: 20;
 }
 
 .garage-text h2 {
