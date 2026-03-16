@@ -706,18 +706,27 @@ function updateCar(index, direction) {
   garageContent.classList.add(outClass);
 
   setTimeout(() => {
+    // いったんアウト状態を解除
     garageContent.classList.remove(outClass);
 
+    // 中身を差し替え
     carImage.src = cars[index].image;
     carImage.alt = cars[index].alt;
     carTitle.textContent = cars[index].title;
     carDescription.textContent = cars[index].description;
 
+    // フェードイン開始位置へ「瞬間移動」
+    garageContent.style.transition = "none";
     garageContent.classList.add(inClass);
 
-    requestAnimationFrame(() => {
-      garageContent.classList.remove(inClass);
-    });
+    // 強制再描画
+    void garageContent.offsetWidth;
+
+    // アニメーションを戻す
+    garageContent.style.transition = "transform 0.4s ease, opacity 0.4s ease";
+
+    // 開始位置から中央へ
+    garageContent.classList.remove(inClass);
   }, 400);
 }
 
