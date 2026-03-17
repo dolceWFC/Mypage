@@ -200,7 +200,7 @@ section.active {
 
 .garage-arrow {
   position: absolute;
-  top: 180px;
+  top: 50%;
   transform: translateY(-50%);
   width: 64px;
   height: 64px;
