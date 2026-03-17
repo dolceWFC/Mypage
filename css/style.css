@@ -285,12 +285,15 @@ section.active {
 
 .links-inner {
   width: 100%;
-  max-width: 900px;
+  max-width: 750px;
   margin: 0 auto;
 }
 
 .links-label {
-  max-width: 900px;
+  width: 100%;
+  max-width: 750px; /* links-innerと揃える */
+  margin: 0 auto 12px;
+  padding-left: 4px; /* 微調整用 */
 }
 
 .links-grid {
@@ -303,11 +306,11 @@ section.active {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 150px;
-  padding: 24px 28px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.03);
+  min-height: 120px;
+  padding: 18px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
   text-decoration: none;
   color: #f2f2f2;
   transition: 0.25s ease;
@@ -315,8 +318,8 @@ section.active {
 }
 
 .link-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.16);
   transform: translateY(-4px);
 }
 
