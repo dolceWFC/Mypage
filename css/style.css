@@ -565,3 +565,15 @@ footer > div:first-child {
     line-height: 1.7;
   }
 }
+
+@media (max-width: 980px) {
+  body {
+    background: hotpink !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    background: lime !important;
+  }
+}
