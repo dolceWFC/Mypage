@@ -25,9 +25,6 @@ sections.forEach((section) => {
 /* =========================
    Garage Slider
 ========================= */
-/* =========================
-   Garage Slider
-========================= */
 let cars = [];
 let currentIndex = 0;
 let isAnimating = false;
@@ -35,6 +32,12 @@ let isAnimating = false;
 const prevCar = document.getElementById("prevCar");
 const nextCar = document.getElementById("nextCar");
 const garageStage = document.getElementById("garageStage");
+const garageDots = document.getElementById("garageDots");
+const garageSection = document.getElementById("garage");
+
+let touchStartX = 0;
+let touchEndX = 0;
+const swipeThreshold = 50;
 
 function createGarageSlide(car) {
   const slide = document.createElement("div");
@@ -56,10 +59,47 @@ function createGarageSlide(car) {
   return slide;
 }
 
+function updateDots() {
+  const dots = garageDots.querySelectorAll(".garage-dot");
+  dots.forEach((dot, index) => {
+    dot.classList.toggle("active", index === currentIndex);
+    dot.setAttribute(
+      "aria-label",
+      index === currentIndex
+        ? `現在表示中: ${cars[index].title}`
+        : `${cars[index].title} を表示`
+    );
+  });
+}
+
+function createDots() {
+  garageDots.innerHTML = "";
+
+  cars.forEach((car, index) => {
+    const dot = document.createElement("button");
+    dot.className = "garage-dot";
+    dot.type = "button";
+    dot.setAttribute("aria-label", `${car.title} を表示`);
+
+    dot.addEventListener("click", () => {
+      if (isAnimating || index === currentIndex) return;
+
+      const direction = index < currentIndex ? "prev" : "next";
+      currentIndex = index;
+      updateCar(currentIndex, direction);
+    });
+
+    garageDots.appendChild(dot);
+  });
+
+  updateDots();
+}
+
 function renderInitialCar(index) {
   garageStage.innerHTML = "";
   const slide = createGarageSlide(cars[index]);
   garageStage.appendChild(slide);
+  updateDots();
 }
 
 function updateCar(index, direction) {
@@ -70,7 +110,7 @@ function updateCar(index, direction) {
   const nextSlide = createGarageSlide(cars[index]);
 
   currentSlide.classList.add("is-animating");
-  nextSlide.classList.add("garage-slide", "is-animating");
+  nextSlide.classList.add("is-animating");
 
   if (direction === "prev") {
     // 左ボタン: 右に消えて、左から入る
@@ -81,6 +121,7 @@ function updateCar(index, direction) {
   }
 
   garageStage.appendChild(nextSlide);
+  updateDots();
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
@@ -99,8 +140,99 @@ function updateCar(index, direction) {
     garageStage.innerHTML = "";
     const settledSlide = createGarageSlide(cars[index]);
     garageStage.appendChild(settledSlide);
+    updateDots();
     isAnimating = false;
   }, 400);
+}
+
+function goPrev() {
+  if (isAnimating || cars.length === 0) return;
+  currentIndex = (currentIndex - 1 + cars.length) % cars.length;
+  updateCar(currentIndex, "prev");
+}
+
+function goNext() {
+  if (isAnimating || cars.length === 0) return;
+  currentIndex = (currentIndex + 1) % cars.length;
+  updateCar(currentIndex, "next");
+}
+
+function bindGarageControls() {
+  prevCar.addEventListener("click", goPrev);
+  nextCar.addEventListener("click", goNext);
+
+  document.addEventListener("keydown", (e) => {
+    const activeTag = document.activeElement?.tagName;
+    const isTyping =
+      activeTag === "INPUT" ||
+      activeTag === "TEXTAREA" ||
+      document.activeElement?.isContentEditable;
+
+    if (isTyping) return;
+
+    if (e.key === "ArrowLeft") {
+      goPrev();
+    } else if (e.key === "ArrowRight") {
+      goNext();
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    const isInteractive =
+      e.target.closest(".garage-arrow") ||
+      e.target.closest(".garage-dots") ||
+      e.target.closest("a") ||
+      e.target.closest("button") ||
+      e.target.closest("input") ||
+      e.target.closest("textarea") ||
+      e.target.closest("label");
+
+    if (isInteractive) return;
+
+    const rect = garageSection.getBoundingClientRect();
+    const garageVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+    if (!garageVisible) return;
+
+    if (e.clientX < window.innerWidth / 2) {
+      goPrev();
+    } else {
+      goNext();
+    }
+  });
+
+  garageStage.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+      touchEndX = touchStartX;
+    },
+    { passive: true }
+  );
+
+  garageStage.addEventListener(
+    "touchmove",
+    (e) => {
+      touchEndX = e.changedTouches[0].clientX;
+    },
+    { passive: true }
+  );
+
+  garageStage.addEventListener(
+    "touchend",
+    () => {
+      const diffX = touchEndX - touchStartX;
+
+      if (Math.abs(diffX) < swipeThreshold) return;
+
+      if (diffX > 0) {
+        goPrev();
+      } else {
+        goNext();
+      }
+    },
+    { passive: true }
+  );
 }
 
 async function loadCars() {
@@ -118,16 +250,8 @@ async function loadCars() {
     }
 
     renderInitialCar(currentIndex);
-
-    prevCar.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + cars.length) % cars.length;
-      updateCar(currentIndex, "prev");
-    });
-
-    nextCar.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % cars.length;
-      updateCar(currentIndex, "next");
-    });
+    createDots();
+    bindGarageControls();
   } catch (error) {
     console.error(error);
     garageStage.innerHTML = `
