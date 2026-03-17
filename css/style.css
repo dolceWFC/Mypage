@@ -103,35 +103,24 @@ section.active {
 .garage-content {
   width: 100%;
   max-width: 820px;
-  text-align: center;
-  opacity: 1;
-  transform: translateX(0);
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  position: relative;
 }
 
-.slide-out-left {
-  transform: translateX(-80px);
-  opacity: 0;
+.garage-stage {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  overflow: hidden;
 }
 
-.slide-out-right {
-  transform: translateX(80px);
-  opacity: 0;
+.garage-slide {
+  width: 100%;
 }
 
-.slide-in-left {
-  transform: translateX(-80px);
-  opacity: 0;
-}
-
-.slide-in-right {
-  transform: translateX(80px);
-  opacity: 0;
-}
-
-.garage-label {
-  max-width: 760px;
-  margin: 0 auto 26px;
+.garage-slide.is-animating {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .garage-image-wrap {
@@ -146,19 +135,6 @@ section.active {
 }
 
 .garage-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 24px;
-  display: block;
-}
-
-#garageMedia {
-  width: 100%;
-  height: 100%;
-}
-
-#garageMedia .garage-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -193,9 +169,38 @@ section.active {
   text-align: left;
 }
 
+/* ここが新規 */
+.slide-leave-left {
+  transform: translateX(-80px);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.slide-leave-right {
+  transform: translateX(80px);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.slide-enter-left {
+  transform: translateX(-80px);
+  opacity: 0;
+}
+
+.slide-enter-right {
+  transform: translateX(80px);
+  opacity: 0;
+}
+
+.slide-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
 .garage-arrow {
   position: absolute;
-  top: 50%;
+  top: 180px;
   transform: translateY(-50%);
   width: 64px;
   height: 64px;
@@ -207,7 +212,7 @@ section.active {
   cursor: pointer;
   backdrop-filter: blur(6px);
   transition: all 0.25s ease;
-  z-index: 10;
+  z-index: 20;
 }
 
 .garage-arrow:hover {
@@ -217,12 +222,26 @@ section.active {
 }
 
 .garage-arrow.left {
-  left: -220px;
+  left: -100px;
 }
 
 .garage-arrow.right {
-  right: -220px;
+  right: -100px;
 }
+
+#garageMedia {
+  width: 100%;
+  height: 100%;
+}
+
+#garageMedia .garage-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+}
+
 
 /* =========================
    Links
