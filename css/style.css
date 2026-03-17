@@ -291,9 +291,7 @@ section.active {
 
 .links-label {
   width: 100%;
-  max-width: 750px; /* links-innerと揃える */
   margin: 0 auto 12px;
-  padding-left: 4px; /* 微調整用 */
 }
 
 .links-grid {
