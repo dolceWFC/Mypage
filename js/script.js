@@ -25,50 +25,81 @@ sections.forEach((section) => {
 /* =========================
    Garage Slider
 ========================= */
+/* =========================
+   Garage Slider
+========================= */
 let cars = [];
 let currentIndex = 0;
+let isAnimating = false;
 
 const prevCar = document.getElementById("prevCar");
 const nextCar = document.getElementById("nextCar");
-const garageContent = document.querySelector(".garage-content");
-const garageMedia = document.getElementById("garageMedia");
-const garageText = document.getElementById("garageText");
+const garageStage = document.getElementById("garageStage");
 
-function renderCar(index) {
-  const car = cars[index];
+function createGarageSlide(car) {
+  const slide = document.createElement("div");
+  slide.className = "garage-slide";
+  slide.innerHTML = `
+    <div class="garage-image-wrap">
+      <img
+        src="${car.image}"
+        alt="${car.alt}"
+        class="garage-image"
+      >
+    </div>
 
-  garageMedia.innerHTML = `
-    <img
-      src="${car.image}"
-      alt="${car.alt}"
-      class="garage-image"
-    >
+    <div class="garage-text">
+      <h2>${car.title}</h2>
+      <p>${car.description}</p>
+    </div>
   `;
+  return slide;
+}
 
-  garageText.innerHTML = `
-    <h2>${car.title}</h2>
-    <p>${car.description}</p>
-  `;
+function renderInitialCar(index) {
+  garageStage.innerHTML = "";
+  const slide = createGarageSlide(cars[index]);
+  garageStage.appendChild(slide);
 }
 
 function updateCar(index, direction) {
-  const outClass = direction === "prev" ? "slide-out-left" : "slide-out-right";
-  const inClass = direction === "prev" ? "slide-in-right" : "slide-in-left";
+  if (isAnimating) return;
+  isAnimating = true;
 
-  garageContent.classList.add(outClass);
+  const currentSlide = garageStage.querySelector(".garage-slide");
+  const nextSlide = createGarageSlide(cars[index]);
+
+  currentSlide.classList.add("is-animating");
+  nextSlide.classList.add("garage-slide", "is-animating");
+
+  if (direction === "prev") {
+    // 左ボタン: 右に消えて、左から入る
+    nextSlide.classList.add("slide-enter-left");
+  } else {
+    // 右ボタン: 左に消えて、右から入る
+    nextSlide.classList.add("slide-enter-right");
+  }
+
+  garageStage.appendChild(nextSlide);
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      if (direction === "prev") {
+        currentSlide.classList.add("slide-leave-right");
+      } else {
+        currentSlide.classList.add("slide-leave-left");
+      }
+
+      nextSlide.classList.add("slide-enter-active");
+      nextSlide.classList.remove("slide-enter-left", "slide-enter-right");
+    });
+  });
 
   setTimeout(() => {
-    garageContent.classList.remove(outClass);
-
-    renderCar(index);
-
-    garageContent.style.transition = "none";
-    garageContent.classList.add(inClass);
-
-    void garageContent.offsetWidth;
-
-    garageContent.style.transition = "transform 0.4s ease, opacity 0.4s ease";
-    garageContent.classList.remove(inClass);
+    garageStage.innerHTML = "";
+    const settledSlide = createGarageSlide(cars[index]);
+    garageStage.appendChild(settledSlide);
+    isAnimating = false;
   }, 400);
 }
 
@@ -86,7 +117,7 @@ async function loadCars() {
       throw new Error("cars.jsonの中身が空、または不正です");
     }
 
-    renderCar(currentIndex);
+    renderInitialCar(currentIndex);
 
     prevCar.addEventListener("click", () => {
       currentIndex = (currentIndex - 1 + cars.length) % cars.length;
@@ -99,9 +130,13 @@ async function loadCars() {
     });
   } catch (error) {
     console.error(error);
-    garageText.innerHTML = `
-      <h2>Garage data could not be loaded.</h2>
-      <p>cars.json の読み込みに失敗しました。ファイル配置を確認してください。</p>
+    garageStage.innerHTML = `
+      <div class="garage-slide">
+        <div class="garage-text">
+          <h2>Garage data could not be loaded.</h2>
+          <p>cars.json の読み込みに失敗しました。ファイル配置を確認してください。</p>
+        </div>
+      </div>
     `;
   }
 }
