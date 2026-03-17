@@ -327,7 +327,7 @@ const linksData = [
   {
     name: "Instagram",
     desc: "Photos and visual archive",
-    url: "https://instagram.com/your_account",
+    url: "https://instagram.com/rhea_rue_",
     icon: "instagram"
   }
 ];
