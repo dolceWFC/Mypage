@@ -25,30 +25,7 @@ sections.forEach((section) => {
 /* =========================
    Garage Slider
 ========================= */
-const cars = [
-  {
-    title: "Alfa Romeo 156 GTA",
-    image: "images/156gta.jpg",
-    alt: "Alfa Romeo 156 GTA",
-    description:
-      "FFアルファロメオの到達点。最高峰のデザインと官能的なサウンド、デビュー当時の市販車としてはFFトップのパワーを併せ持つ、全知全能のメインカー。"
-  },
-  {
-    title: "Alfa Romeo MiTo Quadrifoglio Verde",
-    image: "images/mito.jpg",
-    alt: "Alfa Romeo MiTo",
-    description:
-      "現代車らしい、小排気量を感じさせないトルクフルなパワー感、細かい電装品すらもそうそう壊れない頑丈さを持ちながらも、アルファロメオとしての世界観を受け継ぐ1台。"
-  },
-  {
-    title: "Mazda Roadster Special Package",
-    image: "images/nb.jpg",
-    alt: "Mazda Roadster",
-    description:
-      "日本が誇る傑作ライトウェイト。低速域のドライブの楽しさと低燃費で、日常を彩ってくれる。"
-  }
-];
-
+let cars = [];
 let currentIndex = 0;
 
 const carImage = document.getElementById("carImage");
@@ -57,6 +34,13 @@ const carDescription = document.getElementById("carDescription");
 const prevCar = document.getElementById("prevCar");
 const nextCar = document.getElementById("nextCar");
 const garageContent = document.querySelector(".garage-content");
+
+function renderCar(index) {
+  carImage.src = cars[index].image;
+  carImage.alt = cars[index].alt;
+  carTitle.textContent = cars[index].title;
+  carDescription.textContent = cars[index].description;
+}
 
 function updateCar(index, direction) {
   const outClass = direction === "prev" ? "slide-out-left" : "slide-out-right";
@@ -67,10 +51,7 @@ function updateCar(index, direction) {
   setTimeout(() => {
     garageContent.classList.remove(outClass);
 
-    carImage.src = cars[index].image;
-    carImage.alt = cars[index].alt;
-    carTitle.textContent = cars[index].title;
-    carDescription.textContent = cars[index].description;
+    renderCar(index);
 
     garageContent.style.transition = "none";
     garageContent.classList.add(inClass);
@@ -82,15 +63,37 @@ function updateCar(index, direction) {
   }, 400);
 }
 
-prevCar.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + cars.length) % cars.length;
-  updateCar(currentIndex, "prev");
-});
+async function loadCars() {
+  try {
+    const response = await fetch("data/cars.json");
 
-nextCar.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % cars.length;
-  updateCar(currentIndex, "next");
-});
+    if (!response.ok) {
+      throw new Error("cars.jsonの読み込みに失敗しました");
+    }
+
+    cars = await response.json();
+
+    if (!Array.isArray(cars) || cars.length === 0) {
+      throw new Error("cars.jsonの中身が空、または不正です");
+    }
+
+    renderCar(currentIndex);
+
+    prevCar.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + cars.length) % cars.length;
+      updateCar(currentIndex, "prev");
+    });
+
+    nextCar.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % cars.length;
+      updateCar(currentIndex, "next");
+    });
+  } catch (error) {
+    console.error(error);
+    carTitle.textContent = "Garage data could not be loaded.";
+    carDescription.textContent = "cars.json の読み込みに失敗しました。ファイル配置を確認してください。";
+  }
+}
 
 /* =========================
    Contact Form + Footer Year
@@ -129,4 +132,6 @@ window.addEventListener("DOMContentLoaded", () => {
       message.textContent = "Oops! Something went wrong.";
     }
   });
+
+  loadCars();
 });
