@@ -17,15 +17,13 @@ body {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100%;
-  background: linear-gradient(
-    to bottom,
-    #000000 0%,
-    #000000 25%,
-    #0b0f18 45%,
-    #0c1830 70%,
-    #081a3f 85%,
-    #061737 100%
-  );
+  background: linear-gradient(to bottom,
+      #000000 0%,
+      #000000 25%,
+      #0b0f18 45%,
+      #0c1830 70%,
+      #081a3f 85%,
+      #061737 100%);
 }
 
 section {
@@ -317,27 +315,65 @@ section.active {
   background: rgba(255, 255, 255, 0.02);
   text-decoration: none;
   color: #f2f2f2;
-  transition: 0.25s ease;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
   backdrop-filter: blur(6px);
 }
 
 .link-card:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(120, 170, 255, 0.08);
+  border-color: rgba(120, 170, 255, 0.28);
   transform: translateY(-4px);
+}
+
+.link-card-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.link-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #dfe9ff;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.link-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.link-card:hover .link-icon {
+  background: rgba(120, 170, 255, 0.14);
+  color: #ffffff;
+  transform: scale(1.05);
 }
 
 .link-name {
   font-size: 1.35rem;
   font-weight: 600;
-  margin-bottom: 16px;
   color: #f2f2f2;
+  line-height: 1.2;
 }
 
 .link-desc {
   font-size: 0.95rem;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.65);
+}
+
+@media (max-width: 640px) {
+  .links-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* =========================
@@ -416,7 +452,7 @@ footer {
   z-index: 1000;
 }
 
-footer > div:first-child {
+footer>div:first-child {
   opacity: 0.6;
   font-weight: 300;
   letter-spacing: 1px;
