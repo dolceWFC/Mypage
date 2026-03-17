@@ -128,7 +128,7 @@ section.active {
 .garage-image-wrap {
   width: 100%;
   max-width: 760px;
-  height: 360px;
+  aspect-ratio: 16 / 9;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -504,8 +504,11 @@ footer > div:first-child {
     display: none;
   }
 
+  .garage-image-wrap {
+  aspect-ratio: 4 / 3;
+  }
+
   .garage-image {
-    max-height: 240px;
     border-radius: 18px;
   }
 
@@ -515,13 +518,14 @@ footer > div:first-child {
   }
 
   .garage-text h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    line-height: 1.2;
   }
 
   .garage-text p {
-    font-size: 0.94rem;
-    line-height: 1.8;
+    font-size: 0.92rem;
+    line-height: 1.75;
   }
 
   .garage-dots {
