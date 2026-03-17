@@ -104,6 +104,7 @@ section.active {
   width: 100%;
   max-width: 820px;
   position: relative;
+  z-index: 20;
 }
 
 .garage-stage {
@@ -111,6 +112,7 @@ section.active {
   width: 100%;
   min-height: 520px;
   overflow: hidden;
+  z-index: 10;
 }
 
 .garage-slide {
@@ -169,7 +171,6 @@ section.active {
   text-align: left;
 }
 
-/* ここが新規 */
 .slide-leave-left {
   transform: translateX(-80px);
   opacity: 0;
@@ -212,7 +213,7 @@ section.active {
   cursor: pointer;
   backdrop-filter: blur(6px);
   transition: all 0.25s ease;
-  z-index: 20;
+  z-index: 30;
 }
 
 .garage-arrow:hover {
@@ -242,6 +243,36 @@ section.active {
   display: block;
 }
 
+.garage-dots {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  z-index: 28;
+}
+
+.garage-dot {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 0;
+}
+
+.garage-dot:hover {
+  background: rgba(255, 255, 255, 0.55);
+  transform: scale(1.15);
+}
+
+.garage-dot.active {
+  background: rgba(255, 255, 255, 0.92);
+  transform: scale(1.2);
+}
 
 /* =========================
    Links
@@ -493,6 +524,16 @@ footer > div:first-child {
     width: 46px;
     height: 46px;
     font-size: 1.6rem;
+  }
+
+  .garage-dots {
+    margin-top: 22px;
+    gap: 10px;
+  }
+
+  .garage-dot {
+    width: 9px;
+    height: 9px;
   }
 
   .links-grid {
