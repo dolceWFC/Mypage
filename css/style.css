@@ -436,6 +436,10 @@ footer > div:first-child {
     padding: 40px 24px;
   }
 
+  body {
+    outline: 4px solid blue;
+  }
+
   .garage-section {
     padding: 80px 24px 120px;
   }
@@ -490,6 +494,10 @@ footer > div:first-child {
 @media (max-width: 640px) {
   section {
     padding: 32px 18px;
+  }
+
+  body {
+    outline: 4px solid red;
   }
 
   .garage-section {
