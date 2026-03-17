@@ -500,6 +500,10 @@ footer > div:first-child {
     padding: 0 44px;
   }
 
+  .garage-arrow {
+    display: none;
+  }
+
   .garage-image {
     max-height: 240px;
     border-radius: 18px;
@@ -518,12 +522,6 @@ footer > div:first-child {
   .garage-text p {
     font-size: 0.94rem;
     line-height: 1.8;
-  }
-
-  .garage-arrow {
-    width: 46px;
-    height: 46px;
-    font-size: 1.6rem;
   }
 
   .garage-dots {
