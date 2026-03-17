@@ -1,746 +1,117 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dolce-Rhea</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-/* =========================
-   Base
-========================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Sora', sans-serif;
-  color: #f2f2f2;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    #000000 0%,
-    #000000 25%,
-    #0b0f18 45%,
-    #0c1830 70%,
-    #081a3f 85%,
-    #061737 100%
-  );
-}
-
-section {
-  min-height: 100vh;
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px;
-  position: relative;
-  background: transparent;
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-section.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.section-label {
-  display: block;
-  width: 100%;
-  margin: 0 auto 18px;
-  text-align: left;
-  font-size: 1.1rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-/* =========================
-   Hero
-========================= */
-.hero {
-  align-items: center;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 600;
-  letter-spacing: 6px;
-}
-
-.hero p {
-  margin-top: 30px;
-  font-weight: 300;
-  opacity: 0.45;
-}
-
-/* =========================
-   Garage
-========================= */
-.garage-section {
-  min-height: 100vh;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 40px 40px 120px;
-}
-
-.garage-slider {
-  width: 100%;
-  max-width: 1100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin: 0 auto;
-}
-
-.garage-content {
-  width: 100%;
-  max-width: 820px;
-  text-align: center;
-  opacity: 1;
-  transform: translateX(0);
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-.slide-out-left {
-  transform: translateX(-80px);
-  opacity: 0;
-}
-
-.slide-out-right {
-  transform: translateX(80px);
-  opacity: 0;
-}
-
-.slide-in-left {
-  transform: translateX(-80px);
-  opacity: 0;
-}
-
-.slide-in-right {
-  transform: translateX(80px);
-  opacity: 0;
-}
-
-.garage-label {
-  max-width: 760px;
-  margin: 0 auto 26px;
-}
-
-.garage-image-wrap {
-  width: 100%;
-  max-width: 760px;
-  height: 360px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto 30px;
-  position: relative;
-}
-
-.garage-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 24px;
-  display: block;
-}
-
-.garage-text {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 0 8px;
-  margin-top: 30px;
-  text-align: left;
-}
-
-.garage-text h2 {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 600;
-  line-height: 1.05;
-  margin-bottom: 17px;
-  color: #f2f2f2;
-  text-align: left;
-  letter-spacing: 0.02em;
-}
-
-.garage-text p {
-  font-size: 0.9rem;
-  line-height: 2;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 720px;
-  margin: 0;
-  text-align: left;
-}
-
-.garage-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 64px;
-  height: 64px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 2.4rem;
-  cursor: pointer;
-  backdrop-filter: blur(6px);
-  transition: all 0.25s ease;
-  z-index: 10;
-}
-
-.garage-arrow:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.92);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.garage-arrow.left {
-  left: -220px;
-}
-
-.garage-arrow.right {
-  right: -220px;
-}
-
-/* =========================
-   Links
-========================= */
-.links-section {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-}
-
-.links-inner {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.links-label {
-  max-width: 900px;
-}
-
-.links-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.link-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 150px;
-  padding: 24px 28px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  text-decoration: none;
-  color: #f2f2f2;
-  transition: 0.25s ease;
-  backdrop-filter: blur(6px);
-}
-
-.link-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.24);
-  transform: translateY(-4px);
-}
-
-.link-name {
-  font-size: 1.35rem;
-  font-weight: 600;
-  margin-bottom: 16px;
-  color: #f2f2f2;
-}
-
-.link-desc {
-  font-size: 0.95rem;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.65);
-}
-
-/* =========================
-   Contact
-========================= */
-.contact-section {
-  min-height: 100vh;
-}
-
-.contact-label {
-  max-width: 600px;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.contact-form label {
-  margin-bottom: 20px;
-  font-size: 1rem;
-  display: flex;
-  flex-direction: column;
-  color: #ccc;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  margin-top: 6px;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #555;
-  border-radius: 4px;
-  background-color: #0c1830;
-  color: #f2f2f2;
-}
-
-.contact-form button {
-  width: 100%;
-  padding: 12px 20px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #081a3f;
-  color: #fff;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.contact-form button:hover {
-  background-color: #0b0f18;
-}
-
-#formMessage {
-  text-align: center;
-  margin-top: 20px;
-  display: none;
-}
-
-/* =========================
-   Footer
-========================= */
-footer {
-  position: fixed;
-  bottom: 20px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 0.8rem;
-  z-index: 1000;
-}
-
-footer > div:first-child {
-  opacity: 0.6;
-  font-weight: 300;
-  letter-spacing: 1px;
-}
-
-.footer-links {
-  margin-top: 6px;
-}
-
-.footer-links a {
-  margin: 0 12px;
-  text-decoration: none;
-  color: #777;
-  transition: 0.3s ease;
-}
-
-.footer-links a:hover {
-  color: #fff;
-}
-
-/* =========================
-   Responsive
-========================= */
-@media (max-width: 980px) {
-
-  section {
-    padding: 40px 24px;
-  }
-
-  .garage-section {
-    padding: 80px 24px 120px;
-  }
-
-  .garage-slider {
-    max-width: 100%;
-    padding: 0 56px;
-  }
-
-  .garage-content {
-    max-width: 100%;
-  }
-
-  .garage-image {
-    max-width: 100%;
-    max-height: 320px;
-  }
-
-  .garage-text h2 {
-    font-size: clamp(2rem, 6vw, 3rem);
-  }
-
-  .garage-text p {
-    font-size: 0.98rem;
-    line-height: 1.9;
-  }
-
-  .garage-arrow {
-    width: 56px;
-    height: 56px;
-    font-size: 2rem;
-    top: 34%;
-  }
-
-  .garage-arrow.left {
-    left: 0;
-  }
-
-  .garage-arrow.right {
-    right: 0;
-  }
-
-  .links-inner {
-    max-width: 100%;
-  }
-
-  .links-grid {
-    gap: 16px;
-  }
-}
-
-@media (max-width: 640px) {
-
-  section {
-    padding: 32px 18px;
-  }
-
-  .garage-section {
-    padding: 70px 18px 110px;
-  }
-
-  .garage-slider {
-    padding: 0 44px;
-  }
-
-  .garage-image {
-    max-height: 240px;
-    border-radius: 18px;
-  }
-
-  .garage-label {
-    font-size: 0.8rem;
-    margin-bottom: 16px;
-  }
-
-  .garage-text h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-
-  .garage-text p {
-    font-size: 0.94rem;
-    line-height: 1.8;
-  }
-
-  .garage-arrow {
-    width: 46px;
-    height: 46px;
-    font-size: 1.6rem;
-  }
-
-  .links-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .link-card {
-    min-height: 130px;
-    padding: 20px 22px;
-    border-radius: 16px;
-  }
-
-  .link-name {
-    font-size: 1.15rem;
-  }
-
-  .link-desc {
-    font-size: 0.9rem;
-    line-height: 1.7;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dolce-Rhea</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<!-- =========================
-     Hero
-========================= -->
-<section class="hero">
-  <h1>Dolce-Rhea</h1>
-  <p>Reflecting on my life — "If" and "Lie".</p>
-</section>
+  <!-- =========================
+       Hero
+  ========================= -->
+  <section class="hero">
+    <h1>Dolce-Rhea</h1>
+    <p>Reflecting on my life — "If" and "Lie".</p>
+  </section>
 
-<!-- =========================
-     Garage
-========================= -->
-<section class="garage-section" id="garage">
-  <div class="garage-slider">
-    <p class="section-label garage-label">Garage</p>
+  <!-- =========================
+       Garage
+  ========================= -->
+  <section class="garage-section" id="garage">
+    <div class="garage-slider">
+      <p class="section-label garage-label">Garage</p>
 
-    <div class="garage-content">
-      <div class="garage-image-wrap">
-        <button class="garage-arrow left" id="prevCar" aria-label="前の車へ">&#10094;</button>
+      <div class="garage-content">
+        <div class="garage-image-wrap">
+          <button class="garage-arrow left" id="prevCar" aria-label="前の車へ">&#10094;</button>
 
-        <img id="carImage" src="images/156gta.jpg" alt="Alfa Romeo 156 GTA 6MT" class="garage-image">
+          <img id="carImage" src="images/156gta.jpg" alt="Alfa Romeo 156 GTA 6MT" class="garage-image">
 
-        <button class="garage-arrow right" id="nextCar" aria-label="次の車へ">&#10095;</button>
-      </div>
+          <button class="garage-arrow right" id="nextCar" aria-label="次の車へ">&#10095;</button>
+        </div>
 
-      <div class="garage-text">
-        <h2 id="carTitle">Alfa Romeo 156 GTA 6MT</h2>
-        <p id="carDescription">
-          Busso V6を積んだ、強烈な個性を持つ一台。
-          自分の中で特別な存在であり、走りも佇まいも含めて深く惹かれている車です。
-        </p>
+        <div class="garage-text">
+          <h2 id="carTitle">Alfa Romeo 156 GTA 6MT</h2>
+          <p id="carDescription">
+            Busso V6を積んだ、強烈な個性を持つ一台。
+            自分の中で特別な存在であり、走りも佇まいも含めて深く惹かれている車です。
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- =========================
-     Links
-========================= -->
-<section class="links-section">
-  <div class="links-inner">
-    <div class="section-label links-label">Links</div>
+  <!-- =========================
+       Links
+  ========================= -->
+  <section class="links-section">
+    <div class="links-inner">
+      <div class="section-label links-label">Links</div>
 
-    <div class="links-grid">
-      <a href="https://github.com/dolceWFC" target="_blank" class="link-card">
-        <span class="link-name">GitHub</span>
-        <span class="link-desc">Code, projects, and repositories</span>
-      </a>
+      <div class="links-grid">
+        <a href="https://github.com/dolceWFC" target="_blank" rel="noopener noreferrer" class="link-card">
+          <span class="link-name">GitHub</span>
+          <span class="link-desc">Code, projects, and repositories</span>
+        </a>
 
-      <a href="https://x.com/rhea_rue_" target="_blank" class="link-card">
-        <span class="link-name">Twitter</span>
-        <span class="link-desc">Thoughts, updates, and daily notes</span>
-      </a>
+        <a href="https://x.com/rhea_rue_" target="_blank" rel="noopener noreferrer" class="link-card">
+          <span class="link-name">Twitter</span>
+          <span class="link-desc">Thoughts, updates, and daily notes</span>
+        </a>
 
-      <a href="https://tsukubanyan.racing/" target="_blank" class="link-card">
-        <span class="link-name">HP</span>
-        <span class="link-desc">Related site and external page</span>
-      </a>
+        <a href="https://tsukubanyan.racing/" target="_blank" rel="noopener noreferrer" class="link-card">
+          <span class="link-name">HP</span>
+          <span class="link-desc">Related site and external page</span>
+        </a>
 
-      <a href="#" class="link-card">
-        <span class="link-name">Blog</span>
-        <span class="link-desc">Articles and writing archive</span>
-      </a>
+        <a href="#" class="link-card">
+          <span class="link-name">Blog</span>
+          <span class="link-desc">Articles and writing archive</span>
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- =========================
-     Contact
-========================= -->
-<section class="contact-section">
-  <div class="section-label contact-label">Contact</div>
+  <!-- =========================
+       Contact
+  ========================= -->
+  <section class="contact-section">
+    <div class="section-label contact-label">Contact</div>
 
-  <form id="contactForm" class="contact-form">
-    <label>
-      Name
-      <input type="text" name="name" required>
-    </label>
+    <form id="contactForm" class="contact-form">
+      <label>
+        Name
+        <input type="text" name="name" required>
+      </label>
 
-    <label>
-      Email
-      <input type="email" name="_replyto" required>
-    </label>
+      <label>
+        Email
+        <input type="email" name="_replyto" required>
+      </label>
 
-    <label>
-      Message
-      <textarea name="message" rows="6" required></textarea>
-    </label>
+      <label>
+        Message
+        <textarea name="message" rows="6" required></textarea>
+      </label>
 
-    <button type="submit">Send</button>
-  </form>
+      <button type="submit">Send</button>
+    </form>
 
-  <div id="formMessage" style="color:#0f0;">
-    Thank you! Your message has been sent.
-  </div>
-</section>
+    <div id="formMessage">Thank you! Your message has been sent.</div>
+  </section>
 
-<!-- =========================
-     Footer
-========================= -->
-<footer>
-  <div>© <span id="year"></span> Dolce-Rhea</div>
-</footer>
+  <!-- =========================
+       Footer
+  ========================= -->
+  <footer>
+    <div>© <span id="year"></span> Dolce-Rhea</div>
+  </footer>
 
-<script>
-/* =========================
-   Section Fade-in
-========================= */
-const sections = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("active");
-    } else {
-      entry.target.classList.remove("active");
-    }
-  });
-}, {
-  threshold: 0.6
-});
-
-sections.forEach(section => {
-  observer.observe(section);
-});
-
-/* =========================
-   Contact Form
-========================= */
-window.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  const form = document.getElementById("contactForm");
-  const message = document.getElementById("formMessage");
-
-  form.addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    const data = new FormData(form);
-
-    try {
-      const response = await fetch("https://formspree.io/f/xpqjpbyq", {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" }
-      });
-
-      if (response.ok) {
-        message.style.display = "block";
-        message.style.color = "#0f0";
-        message.textContent = "Thank you! Your message has been sent.";
-        form.reset();
-      } else {
-        message.style.display = "block";
-        message.style.color = "#f33";
-        message.textContent = "Oops! There was a problem.";
-      }
-    } catch (error) {
-      message.style.display = "block";
-      message.style.color = "#f33";
-      message.textContent = "Oops! Something went wrong.";
-    }
-  });
-});
-
-/* =========================
-   Garage Slider
-========================= */
-const cars = [
-  {
-    title: "Alfa Romeo 156 GTA",
-    image: "images/156gta.jpg",
-    alt: "Alfa Romeo 156 GTA",
-    description: "FFアルファロメオの到達点。最高峰のデザインと官能的なサウンド、デビュー当時の市販車としてはFFトップのパワーを併せ持つ、全知全能のメインカー。"
-  },
-  {
-    title: "Alfa Romeo MiTo Quadrifoglio Verde",
-    image: "images/mito.jpg",
-    alt: "Alfa Romeo MiTo",
-    description: "現代車らしい、小排気量を感じさせないトルクフルなパワー感、細かい電装品すらもそうそう壊れない頑丈さを持ちながらも、アルファロメオとしての世界観を受け継ぐ1台。"
-  },
-  {
-    title: "Mazda Roadster Special Package",
-    image: "images/nb.jpg",
-    alt: "Mazda Roadster",
-    description: "日本が誇る傑作ライトウェイト。低速域のドライブの楽しさと低燃費で、日常を彩ってくれる。"
-  },
-];
-
-let currentIndex = 0;
-
-const carImage = document.getElementById("carImage");
-const carTitle = document.getElementById("carTitle");
-const carDescription = document.getElementById("carDescription");
-const prevCar = document.getElementById("prevCar");
-const nextCar = document.getElementById("nextCar");
-const garageContent = document.querySelector(".garage-content");
-
-function updateCar(index, direction) {
-  const outClass = direction === "prev"
-    ? "slide-out-left"
-    : "slide-out-right";
-
-  const inClass = direction === "prev"
-    ? "slide-in-right"
-    : "slide-in-left";
-
-  garageContent.classList.add(outClass);
-
-  setTimeout(() => {
-    // いったんアウト状態を解除
-    garageContent.classList.remove(outClass);
-
-    // 中身を差し替え
-    carImage.src = cars[index].image;
-    carImage.alt = cars[index].alt;
-    carTitle.textContent = cars[index].title;
-    carDescription.textContent = cars[index].description;
-
-    // フェードイン開始位置へ「瞬間移動」
-    garageContent.style.transition = "none";
-    garageContent.classList.add(inClass);
-
-    // 強制再描画
-    void garageContent.offsetWidth;
-
-    // アニメーションを戻す
-    garageContent.style.transition = "transform 0.4s ease, opacity 0.4s ease";
-
-    // 開始位置から中央へ
-    garageContent.classList.remove(inClass);
-  }, 400);
-}
-
-prevCar.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + cars.length) % cars.length;
-  updateCar(currentIndex, "prev");
-});
-
-nextCar.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % cars.length;
-  updateCar(currentIndex, "next");
-});
-</script>
-
+  <script src="js/script.js"></script>
 </body>
 </html>
