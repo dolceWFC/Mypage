@@ -28,18 +28,27 @@ sections.forEach((section) => {
 let cars = [];
 let currentIndex = 0;
 
-const carImage = document.getElementById("carImage");
-const carTitle = document.getElementById("carTitle");
-const carDescription = document.getElementById("carDescription");
 const prevCar = document.getElementById("prevCar");
 const nextCar = document.getElementById("nextCar");
 const garageContent = document.querySelector(".garage-content");
+const garageMedia = document.getElementById("garageMedia");
+const garageText = document.getElementById("garageText");
 
 function renderCar(index) {
-  carImage.src = cars[index].image;
-  carImage.alt = cars[index].alt;
-  carTitle.textContent = cars[index].title;
-  carDescription.textContent = cars[index].description;
+  const car = cars[index];
+
+  garageMedia.innerHTML = `
+    <img
+      src="${car.image}"
+      alt="${car.alt}"
+      class="garage-image"
+    >
+  `;
+
+  garageText.innerHTML = `
+    <h2>${car.title}</h2>
+    <p>${car.description}</p>
+  `;
 }
 
 function updateCar(index, direction) {
@@ -90,8 +99,10 @@ async function loadCars() {
     });
   } catch (error) {
     console.error(error);
-    carTitle.textContent = "Garage data could not be loaded.";
-    carDescription.textContent = "cars.json の読み込みに失敗しました。ファイル配置を確認してください。";
+    garageText.innerHTML = `
+      <h2>Garage data could not be loaded.</h2>
+      <p>cars.json の読み込みに失敗しました。ファイル配置を確認してください。</p>
+    `;
   }
 }
 
