@@ -308,7 +308,7 @@ async function loadCars() {
 const linksData = [
   {
     name: "Blog",
-    desc: "車関連がメインのブログ",
+    desc: "車関連がメインのブログ、友人たちと共著です",
     url: "https://tsukubanyan.racing/",
     icon: "pen"
   },
