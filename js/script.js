@@ -39,6 +39,25 @@ let touchStartX = 0;
 let touchEndX = 0;
 const swipeThreshold = 50;
 
+function createSpecsHtml(specs) {
+  if (!specs) return "";
+
+  return `
+    <div class="garage-specs">
+      ${Object.entries(specs)
+      .map(
+        ([label, value]) => `
+            <div class="garage-spec-item">
+              <span class="garage-spec-label">${label}</span>
+              <span class="garage-spec-value">${value}</span>
+            </div>
+          `
+      )
+      .join("")}
+    </div>
+  `;
+}
+
 function createGarageSlide(car) {
   const slide = document.createElement("div");
   slide.className = "garage-slide";
@@ -54,6 +73,7 @@ function createGarageSlide(car) {
     <div class="garage-text">
       <h2>${car.title}</h2>
       <p>${car.description}</p>
+      ${createSpecsHtml(car.specs)}
     </div>
   `;
   return slide;
@@ -82,7 +102,7 @@ function setGarageStageMinHeight() {
     garageStage.removeChild(slide);
   });
 
-  garageStage.style.minHeight = `${maxHeight}px`;
+  garageStage.style.minHeight = "";
   garageStage.innerHTML = originalContent;
   garageStage.style.height = originalHeight;
   garageStage.style.minHeight = `${maxHeight}px`;
