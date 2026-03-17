@@ -308,25 +308,25 @@ async function loadCars() {
 const linksData = [
   {
     name: "Blog",
-    desc: "Related site and external page",
+    desc: "車関連がメインのブログ",
     url: "https://tsukubanyan.racing/",
     icon: "pen"
   },
   {
     name: "GitHub",
-    desc: "Code, projects, and repositories",
+    desc: "エンジニアではないので更新はまちまち",
     url: "https://github.com/dolceWFC",
     icon: "github"
   },
   {
     name: "Twitter",
-    desc: "Thoughts, updates, and daily notes",
+    desc: "もっともよく動かしているSNS",
     url: "https://x.com/rhea_rue_",
     icon: "x"
   },
   {
     name: "Instagram",
-    desc: "Photos and visual archive",
+    desc: "更新したい",
     url: "https://instagram.com/rhea_rue_",
     icon: "instagram"
   }
