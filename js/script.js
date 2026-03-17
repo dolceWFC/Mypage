@@ -59,6 +59,35 @@ function createGarageSlide(car) {
   return slide;
 }
 
+function setGarageStageMinHeight() {
+  const originalContent = garageStage.innerHTML;
+  const originalHeight = garageStage.style.height;
+  const originalMinHeight = garageStage.style.minHeight;
+
+  garageStage.innerHTML = "";
+  garageStage.style.height = "";
+  garageStage.style.minHeight = "";
+
+  let maxHeight = 0;
+
+  cars.forEach((car) => {
+    const slide = createGarageSlide(car);
+    slide.style.position = "absolute";
+    slide.style.visibility = "hidden";
+    slide.style.pointerEvents = "none";
+    slide.style.width = "100%";
+
+    garageStage.appendChild(slide);
+    maxHeight = Math.max(maxHeight, slide.offsetHeight);
+    garageStage.removeChild(slide);
+  });
+
+  garageStage.style.minHeight = `${maxHeight}px`;
+  garageStage.innerHTML = originalContent;
+  garageStage.style.height = originalHeight;
+  garageStage.style.minHeight = `${maxHeight}px`;
+}
+
 function updateDots() {
   const dots = garageDots.querySelectorAll(".garage-dot");
   dots.forEach((dot, index) => {
@@ -109,6 +138,10 @@ function updateCar(index, direction) {
   const currentSlide = garageStage.querySelector(".garage-slide");
   const nextSlide = createGarageSlide(cars[index]);
 
+  // 現在の高さを固定して、absolute化で親が潰れるのを防ぐ
+  const stageHeight = garageStage.offsetHeight;
+  garageStage.style.height = `${stageHeight}px`;
+
   currentSlide.classList.add("is-animating");
   nextSlide.classList.add("is-animating");
 
@@ -140,6 +173,12 @@ function updateCar(index, direction) {
     garageStage.innerHTML = "";
     const settledSlide = createGarageSlide(cars[index]);
     garageStage.appendChild(settledSlide);
+
+    // 新しいスライドの高さに合わせて固定を解除
+    requestAnimationFrame(() => {
+      garageStage.style.height = "";
+    });
+
     updateDots();
     isAnimating = false;
   }, 400);
@@ -250,6 +289,7 @@ async function loadCars() {
     }
 
     renderInitialCar(currentIndex);
+    setGarageStageMinHeight();
     createDots();
     bindGarageControls();
   } catch (error) {
