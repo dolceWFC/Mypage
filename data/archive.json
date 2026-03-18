@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Alfa Romeo MiTo",
+    "description": "初めてのイタ車。",
+    "image": "images/mito.jpg",
+    "alt": "MiTo",
+    "specs": {
+      "Engine": "1.4T",
+      "Drive": "FF"
+    }
+  }
+]
