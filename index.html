@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,90 +17,88 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Dolce-Rhea">
-  <meta name="twitter:description" content="Dolceの個人サイト。">
-  <meta name="twitter:image" content="https://dolce-rhea.live/images/ogp.jpg">
 
-  <!-- Font / CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260317-2">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <!-- =========================
-       Hero
-  ========================= -->
-  <section class="hero">
-    <h1>Dolce-Rhea</h1>
-    <p>Reflecting on my life — "If" and "Lie".</p>
-  </section>
 
-  <!-- =========================
-       Garage
-  ========================= -->
-  <section class="garage-section" id="garage">
-    <div class="garage-slider">
-      <p class="section-label garage-label">Garage</p>
+<section class="hero">
+  <h1>Dolce-Rhea</h1>
+  <p>Reflecting on my life — "If" and "Lie".</p>
+</section>
 
-      <div class="garage-content">
-        <button class="garage-arrow left" id="prevCar" aria-label="前の車へ">&#10094;</button>
-        <button class="garage-arrow right" id="nextCar" aria-label="次の車へ">&#10095;</button>
+<!-- ===== Garage ===== -->
+<section class="garage-section" id="garage">
+  <div class="garage-slider">
 
-        <div class="garage-stage" id="garageStage"></div>
-
-        <div class="garage-dots" id="garageDots" aria-label="スライドナビゲーション"></div>
-      </div>
+    <div class="section-label">
+      GARAGE
+      <span class="section-sub">現在所有している車たち。</span>
     </div>
-  </section>
 
-  <!-- =========================
-       Links
-  ========================= -->
-  <section class="links-section">
-    <div class="links-inner">
-      <div class="section-label links-label">Links</div>
-      <div class="links-grid" id="linksGrid"></div>
+    <div class="garage-content">
+      <button class="garage-arrow left" id="prevCar">&#10094;</button>
+      <button class="garage-arrow right" id="nextCar">&#10095;</button>
+
+      <div class="garage-stage" id="garageStage"></div>
+      <div class="garage-dots" id="garageDots"></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- =========================
-       Contact
-  ========================= -->
-  <section class="contact-section">
-    <div class="section-label contact-label">Contact</div>
+<!-- ===== Archive ===== -->
+<section class="garage-section garage-archive-section">
+  <div class="garage-slider">
 
-    <form id="contactForm" class="contact-form">
-      <label>
-        Name
-        <input type="text" name="name" required>
-      </label>
+    <div class="section-label">
+      GARAGE-ARCHIVE
+      <span class="section-sub">過去に乗っていた車たちの記録。</span>
+    </div>
 
-      <label>
-        Email
-        <input type="email" name="_replyto" required>
-      </label>
+    <div class="garage-content">
+      <button class="garage-arrow left" id="prevArchive">&#10094;</button>
+      <button class="garage-arrow right" id="nextArchive">&#10095;</button>
 
-      <label>
-        Message
-        <textarea name="message" rows="6" required></textarea>
-      </label>
+      <div class="garage-stage" id="archiveStage"></div>
+      <div class="garage-dots" id="archiveDots"></div>
+    </div>
+  </div>
+</section>
 
-      <button type="submit">Send</button>
-    </form>
+<!-- ===== Links ===== -->
+<section class="links-section">
+  <div class="links-inner">
+    <div class="section-label">
+      LINKS
+      <span class="section-sub">SNS等のリンク集。</span>
+    </div>
+    <div class="links-grid" id="linksGrid"></div>
+  </div>
+</section>
 
-    <div id="formMessage">Thank you! Your message has been sent.</div>
-  </section>
+<!-- ===== Contact ===== -->
+<section class="contact-section">
+  <div class="section-label">
+    CONTACT
+    <span class="section-sub">問い合わせフォーム。</span>
+  </div>
 
-  <!-- =========================
-       Footer
-  ========================= -->
-  <footer>
-    <div>© <span id="year"></span> Dolce-Rhea</div>
-  </footer>
+  <form id="contactForm" class="contact-form">
+    <label>Name<input type="text" name="name" required></label>
+    <label>Email<input type="email" name="_replyto" required></label>
+    <label>Message<textarea name="message" required></textarea></label>
+    <button type="submit">Send</button>
+  </form>
 
-  <script src="js/script.js?v=20260317-2"></script>
+  <div id="formMessage"></div>
+</section>
 
+<footer>
+  <div>© <span id="year"></span> Dolce-Rhea</div>
+</footer>
 
+<script src="js/script.js"></script>
 </body>
-
 </html>
