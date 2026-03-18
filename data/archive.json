@@ -41,29 +41,31 @@
     }
   },
   {
-    "title": "Nissan Skyline Coupe 370GT Type SP",
-    "description": "唯一ATだったメインカー。圧巻の加速、排気量のゆとりを教えてくれた一台。",
-    "image": "images/skyline.jpg",
-    "alt": "Skyline Coupe CKV36",
+    "title": "Nissan Sunny Track Short Body",
+    "description": "90年代の車でありながら基礎設計は70年代の大衆車。パワーこそ今の軽にすら劣るが、720kgという軽さとメカとの一体感は最高の一台だった。",
+    "image": "images/sunnyt.jpg",
+    "alt": "Nissan Sunny Track Short Body",
     "specs": {
-      "Engine": "3,179 cc V6 DOHC NA",
-      "Transmission": "5AT",
+      "Year": "1992",
+      "Engine": "1,171 cc I4 OHV NA",
+      "Transmission": "4MT",
       "Drive": "FR",
-      "Power": "333 PS / 370Nm",
-      "Weight": "1,680 kg"
+      "Power": "52 PS / 83Nm",
+      "Weight": "720 kg"
     }
   },
   {
-    "title": "Nissan Skyline Coupe 370GT Type SP",
-    "description": "唯一ATだったメインカー。圧巻の加速、排気量のゆとりを教えてくれた一台。",
-    "image": "images/skyline.jpg",
-    "alt": "Skyline Coupe CKV36",
+    "title": "BMW Mini Cooper S",
+    "description": "初代BME製ミニのスポーツモデル。愛らしい見た目に反して、スーパーチャージャーによる分厚いトルク、スパルタンな足回りと鋭いステアリングフィールでドイツ的なスポーツカーの考え方を味わった一台。",
+    "image": "images/r53mini.jpg",
+    "alt": "BMW Mini Cooper S",
     "specs": {
-      "Engine": "3,179 cc V6 DOHC NA",
-      "Transmission": "5AT",
-      "Drive": "FR",
-      "Power": "333 PS / 370Nm",
-      "Weight": "1,680 kg"
+      "Year": "2001",
+      "Engine": "1,598 cc I4 SOHC SC",
+      "Transmission": "6MT",
+      "Drive": "FF",
+      "Power": "163 PS / 219Nm",
+      "Weight": "1,180 kg"
     }
   }
 ]
