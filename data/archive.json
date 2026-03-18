@@ -1,12 +1,69 @@
 [
   {
     "title": "Nissan Skyline Coupe 370GT Type SP",
-    "description": "唯一ATだったメインカー。",
+    "description": "唯一ATだったメインカー。圧巻の加速、排気量のゆとりを教えてくれた一台。",
     "image": "images/skyline.jpg",
     "alt": "Skyline Coupe CKV36",
     "specs": {
-      "Engine": "3,696 cc V6 DOHC NA",
-      "Drive": "FR"
+      "Engine": "3,179 cc V6 DOHC NA",
+      "Transmission": "5AT",
+      "Drive": "FR",
+      "Power": "333 PS / 370Nm",
+      "Weight": "1,680 kg"
+    }
+  },
+  {
+    "title": "Alfa Romeo MiTo Quadrifoglio Verde",
+    "image": "images/mito.jpg",
+    "alt": "Alfa Romeo MiTo",
+    "description": "現代車らしい小排気量を感じさせないトルクフルなパワー感、細かい電装品すらもそうそう壊れない頑丈さを持ちながらも、アルファロメオとしての世界観を受け継ぐ1台。",
+    "specs": {
+      "Year": "2013",
+      "Engine": "1,368 cc I4 DOHC Multiair Turbo",
+      "Transmission": "6MT",
+      "Drive": "FF",
+      "Power": "170 PS / 250Nm",
+      "Weight": "1,250 kg"
+    }
+  },
+  {
+    "title": "Alfa Romeo 156 2.0 Twin Spark",
+    "description": "アルファロメオの沼へと私を引きずり込んだ一台。直列4気筒とは思えない官能的なサウンド、独特の美学が今日に至るまで、私の心を捉えて離さない。",
+    "image": "images/156ts.jpg",
+    "alt": "Alfa Romeo 156 2.0 Twin Spark",
+    "specs": {
+      "Year": "1998",
+      "Engine": "1,969 cc I4 DOHC NA",
+      "Transmission": "5MT",
+      "Drive": "FF",
+      "Power": "155 PS / 187Nm",
+      "Weight": "1,300 kg"
+    }
+  },
+  {
+    "title": "Nissan Skyline Coupe 370GT Type SP",
+    "description": "唯一ATだったメインカー。圧巻の加速、排気量のゆとりを教えてくれた一台。",
+    "image": "images/skyline.jpg",
+    "alt": "Skyline Coupe CKV36",
+    "specs": {
+      "Engine": "3,179 cc V6 DOHC NA",
+      "Transmission": "5AT",
+      "Drive": "FR",
+      "Power": "333 PS / 370Nm",
+      "Weight": "1,680 kg"
+    }
+  },
+  {
+    "title": "Nissan Skyline Coupe 370GT Type SP",
+    "description": "唯一ATだったメインカー。圧巻の加速、排気量のゆとりを教えてくれた一台。",
+    "image": "images/skyline.jpg",
+    "alt": "Skyline Coupe CKV36",
+    "specs": {
+      "Engine": "3,179 cc V6 DOHC NA",
+      "Transmission": "5AT",
+      "Drive": "FR",
+      "Power": "333 PS / 370Nm",
+      "Weight": "1,680 kg"
     }
   }
 ]
