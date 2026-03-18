@@ -50,7 +50,7 @@ section.active {
   flex-direction: column;
   gap: 4px;
   width: 100%;
-  margin: 0 auto 18px;
+  margin: 0 auto 14px;
   text-align: left;
   font-size: 0.95rem;
   letter-spacing: 0.22em;
@@ -122,7 +122,7 @@ section.active {
 .garage-label {
   width: 100%;
   max-width: 760px;
-  margin: 0 auto 26px;
+  margin: 0 auto 14px;
 }
 
 .garage-slide {
@@ -138,12 +138,12 @@ section.active {
 
 .garage-image-wrap {
   width: 100%;
-  max-width: 670px;
+  max-width: 640px;
   aspect-ratio: 16 / 9;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto 22px;
+  margin: 0 auto 14px;
   position: relative;
 }
 
@@ -159,7 +159,7 @@ section.active {
   max-width: 760px;
   margin: 0 auto;
   padding: 0 8px;
-  margin-top: 22px;
+  margin-top: 10px;
   text-align: left;
 }
 
@@ -167,7 +167,7 @@ section.active {
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   font-weight: 600;
   line-height: 1.05;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   color: #f2f2f2;
   text-align: left;
   letter-spacing: 0.02em;
@@ -175,7 +175,7 @@ section.active {
 
 .garage-text p {
   font-size: 0.9rem;
-  line-height: 2;
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.9);
   max-width: 720px;
   margin: 0;
@@ -288,29 +288,23 @@ section.active {
 .garage-specs {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  /* 12 → 10 */
-  margin-top: 22px;
-  /* 26 → 22 */
+  gap: 8px;
+  margin-top: 14px;
 }
 
 .garage-spec-item {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  /* 4 → 2 */
   padding: 9px 12px;
-  /* 12 14 → 9 12 */
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
-  /* 12 → 10 */
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(4px);
 }
 
 .garage-spec-label {
   font-size: 0.68rem;
-  /* 0.75 → 0.68 */
   letter-spacing: 0.07em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5);
@@ -318,9 +312,7 @@ section.active {
 
 .garage-spec-value {
   font-size: 0.9rem;
-  /* 0.98 → 0.9 */
   line-height: 1.35;
-  /* 1.5 → 1.35 */
   color: rgba(255, 255, 255, 0.92);
 }
 
