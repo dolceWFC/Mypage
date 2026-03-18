@@ -602,7 +602,7 @@ footer>div:first-child {
 
   .hero {
     justify-content: flex-start;
-    padding-top: 200px;
+    padding-top: 240px;
   }
 
   .hero h1 {
@@ -656,7 +656,7 @@ footer>div:first-child {
   }
 
   .garage-dots {
-    margin-top: 10px;
+    margin-top: 7px;
     gap: 10px;
   }
 
