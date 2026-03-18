@@ -96,7 +96,7 @@ section.active {
 
 .garage-slider {
   width: 100%;
-  max-width: 1100px;
+  max-width: 760px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -434,13 +434,22 @@ section.active {
 /* =========================
    Contact
 ========================= */
+/* =========================
+   Contact
+========================= */
 .contact-section {
   min-height: 100vh;
 }
 
-.contact-label {
+.contact-inner {
+  width: 100%;
   max-width: 760px;
-  margin: 0 auto 26px;
+  margin: 0 auto;
+}
+
+.contact-label {
+  width: 100%;
+  margin: 0 0 26px 0;
 }
 
 .contact-form {
@@ -457,18 +466,6 @@ section.active {
   display: flex;
   flex-direction: column;
   color: #ccc;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  margin-top: 6px;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #555;
-  border-radius: 4px;
-  background-color: #0c1830;
-  color: #f2f2f2;
 }
 
 .contact-form input,
