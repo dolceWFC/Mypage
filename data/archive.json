@@ -1,12 +1,12 @@
 [
   {
-    "title": "Alfa Romeo MiTo",
-    "description": "初めてのイタ車。",
-    "image": "images/mito.jpg",
-    "alt": "MiTo",
+    "title": "Nissan Skyline Coupe 370GT Type SP",
+    "description": "唯一ATだったメインカー。",
+    "image": "images/skyline.jpg",
+    "alt": "Skyline Coupe CKV36",
     "specs": {
-      "Engine": "1.4T",
-      "Drive": "FF"
+      "Engine": "3,696 cc V6 DOHC NA",
+      "Drive": "FR"
     }
   }
 ]
