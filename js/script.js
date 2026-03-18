@@ -325,6 +325,58 @@ async function loadCars() {
   }
 }
 
+// garage-archive用拡張
+
+function initSlider(data, stage, dots, prevBtn, nextBtn) {
+  let index = 0;
+  let animating = false;
+
+  function render(i) {
+    stage.innerHTML = "";
+    stage.appendChild(createGarageSlide(data[i]));
+  }
+
+  function update(i, dir) {
+    if (animating) return;
+    animating = true;
+
+    const current = stage.querySelector(".garage-slide");
+    const next = createGarageSlide(data[i]);
+
+    stage.style.height = stage.offsetHeight + "px";
+
+    current.classList.add("is-animating");
+    next.classList.add("is-animating");
+
+    next.classList.add(dir === "prev" ? "slide-enter-left" : "slide-enter-right");
+
+    stage.appendChild(next);
+
+    requestAnimationFrame(() => {
+      current.classList.add(dir === "prev" ? "slide-leave-right" : "slide-leave-left");
+      next.classList.add("slide-enter-active");
+    });
+
+    setTimeout(() => {
+      render(i);
+      stage.style.height = "";
+      animating = false;
+    }, 400);
+  }
+
+  prevBtn.onclick = () => {
+    index = (index - 1 + data.length) % data.length;
+    update(index, "prev");
+  };
+
+  nextBtn.onclick = () => {
+    index = (index + 1) % data.length;
+    update(index, "next");
+  };
+
+  render(index);
+}
+
 const linksData = [
   {
     name: "Blog",
