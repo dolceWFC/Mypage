@@ -622,7 +622,7 @@ footer>div:first-child {
   }
 
   .garage-image-wrap {
-    aspect-ratio: 5 / 4;
+    aspect-ratio: 16 / 9;
     max-width: 90%;
     margin-bottom: 14px;
   }
