@@ -1,7 +1,35 @@
 [
   {
+    "title": "Suzuki Jimny VAN HC",
+    "description": "免許取得後、初めて運転した車。街乗りでもアクセルを8割以上開けないと走らない非力さと、その一方で横転しても一切機関系に影響がない、高い評価を獲得しているオフロード性能とを併せ持つ。ダブルクラッチをしなければ2速に入らず、シフトショックもダイレクトに伝わる、中々ハードな教育をしてくれた一台。",
+    "image": "images/jimny.jpg",
+    "alt": "Suzuki Jimny VAN HC",
+    "specs": {
+      "Year": "1994",
+      "Engine": "657 cc I3 SOHC TB",
+      "Transmission": "5MT",
+      "Drive": "4WD (part-time)",
+      "Power": "58 PS / 86Nm",
+      "Weight": "870 kg"
+    }
+  },
+  {
+    "title": "BMW Mini Cooper S",
+    "description": "初代BME製ミニのスポーツモデル。愛らしい見た目に反して、スーパーチャージャーによる分厚いトルク、スパルタンな足回りと鋭いステアリングフィールでドイツ的なスポーツカーの考え方を味わった一台。",
+    "image": "images/r53mini.jpg",
+    "alt": "BMW Mini Cooper S",
+    "specs": {
+      "Year": "2001",
+      "Engine": "1,598 cc I4 SOHC SC",
+      "Transmission": "6MT",
+      "Drive": "FF",
+      "Power": "163 PS / 219Nm",
+      "Weight": "1,180 kg"
+    }
+  },
+  {
     "title": "Nissan Skyline Coupe 370GT Type SP",
-    "description": "唯一ATだったメインカー。圧巻の加速、排気量のゆとりを教えてくれた一台。",
+    "description": "唯一ATだったメインカー。圧巻の加速と高速巡行の快適さで、排気量のゆとりを教えてくれた一台。",
     "image": "images/skyline.jpg",
     "alt": "Skyline Coupe CKV36",
     "specs": {
@@ -10,34 +38,6 @@
       "Drive": "FR",
       "Power": "333 PS / 370Nm",
       "Weight": "1,680 kg"
-    }
-  },
-  {
-    "title": "Alfa Romeo MiTo Quadrifoglio Verde",
-    "image": "images/mito.jpg",
-    "alt": "Alfa Romeo MiTo",
-    "description": "現代車らしい小排気量を感じさせないトルクフルなパワー感、細かい電装品すらもそうそう壊れない頑丈さを持ちながらも、アルファロメオとしての世界観を受け継ぐ1台。",
-    "specs": {
-      "Year": "2013",
-      "Engine": "1,368 cc I4 DOHC Multiair Turbo",
-      "Transmission": "6MT",
-      "Drive": "FF",
-      "Power": "170 PS / 250Nm",
-      "Weight": "1,250 kg"
-    }
-  },
-  {
-    "title": "Alfa Romeo 156 2.0 Twin Spark",
-    "description": "アルファロメオの沼へと私を引きずり込んだ一台。直列4気筒とは思えない官能的なサウンド、独特の美学が今日に至るまで、私の心を捉えて離さない。",
-    "image": "images/156ts.jpg",
-    "alt": "Alfa Romeo 156 2.0 Twin Spark",
-    "specs": {
-      "Year": "1998",
-      "Engine": "1,969 cc I4 DOHC NA",
-      "Transmission": "5MT",
-      "Drive": "FF",
-      "Power": "155 PS / 187Nm",
-      "Weight": "1,300 kg"
     }
   },
   {
@@ -55,17 +55,31 @@
     }
   },
   {
-    "title": "BMW Mini Cooper S",
-    "description": "初代BME製ミニのスポーツモデル。愛らしい見た目に反して、スーパーチャージャーによる分厚いトルク、スパルタンな足回りと鋭いステアリングフィールでドイツ的なスポーツカーの考え方を味わった一台。",
-    "image": "images/r53mini.jpg",
-    "alt": "BMW Mini Cooper S",
+    "title": "Alfa Romeo 156 2.0 Twin Spark",
+    "description": "アルファロメオの沼へと私を引きずり込んだ一台。直列4気筒とは思えない官能的なサウンド、独特の美学が今日に至るまで、私の心を捉えて離さない。",
+    "image": "images/156ts.jpg",
+    "alt": "Alfa Romeo 156 2.0 Twin Spark",
     "specs": {
-      "Year": "2001",
-      "Engine": "1,598 cc I4 SOHC SC",
+      "Year": "1998",
+      "Engine": "1,969 cc I4 DOHC NA",
+      "Transmission": "5MT",
+      "Drive": "FF",
+      "Power": "155 PS / 187Nm",
+      "Weight": "1,300 kg"
+    }
+  },
+  {
+    "title": "Alfa Romeo MiTo Quadrifoglio Verde",
+    "image": "images/mito.jpg",
+    "alt": "Alfa Romeo MiTo",
+    "description": "現代車らしい小排気量を感じさせないトルクフルなパワー感、細かい電装品すらもそうそう壊れない頑丈さを持ちながらも、アルファロメオとしての世界観を受け継ぐ一台。",
+    "specs": {
+      "Year": "2013",
+      "Engine": "1,368 cc I4 DOHC Multiair Turbo",
       "Transmission": "6MT",
       "Drive": "FF",
-      "Power": "163 PS / 219Nm",
-      "Weight": "1,180 kg"
+      "Power": "170 PS / 250Nm",
+      "Weight": "1,250 kg"
     }
-  }
+  }  
 ]
