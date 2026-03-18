@@ -46,7 +46,9 @@ section.active {
 }
 
 .section-label {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   width: 100%;
   margin: 0 auto 18px;
   text-align: left;
@@ -54,6 +56,11 @@ section.active {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
+}
+
+.section-sub {
+  font-size: 0.68rem;
+  opacity: 0.6;
 }
 
 /* =========================
@@ -315,6 +322,15 @@ section.active {
   line-height: 1.35;
   /* 1.5 → 1.35 */
   color: rgba(255, 255, 255, 0.92);
+}
+
+/* Archive差別化 */
+.garage-archive-section .garage-image {
+  filter: brightness(0.9) contrast(0.95);
+}
+
+.garage-archive-section .garage-spec-item {
+  background: rgba(255,255,255,0.02);
 }
 
 /* =========================
