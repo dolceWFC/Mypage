@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Dolce-Rhea</title>
-  <meta name="description" content="Dolceの個人サイト。">
+  <meta name="description" content="Dolceの個人サイト">
 
   <!-- OGP -->
   <meta property="og:type" content="website">
@@ -35,7 +35,7 @@
 
     <div class="section-label">
       GARAGE
-      <span class="section-sub">現在所有している車たち。</span>
+      <span class="section-sub">現在所有している車たち</span>
     </div>
 
     <div class="garage-content">
@@ -72,7 +72,7 @@
   <div class="links-inner">
     <div class="section-label">
       LINKS
-      <span class="section-sub">SNS等のリンク集。</span>
+      <span class="section-sub">SNS等のリンク集</span>
     </div>
     <div class="links-grid" id="linksGrid"></div>
   </div>
@@ -80,19 +80,33 @@
 
 <!-- ===== Contact ===== -->
 <section class="contact-section">
-  <div class="section-label">
-    CONTACT
-    <span class="section-sub">問い合わせフォーム。</span>
+  <div class="contact-inner">
+    <div class="section-label contact-label">
+      CONTACT
+      <span class="section-sub">問い合わせフォーム</span>
+    </div>
+
+    <form id="contactForm" class="contact-form">
+      <label>
+        Name
+        <input type="text" name="name" required>
+      </label>
+
+      <label>
+        Email
+        <input type="email" name="_replyto" required>
+      </label>
+
+      <label>
+        Message
+        <textarea name="message" rows="6" required></textarea>
+      </label>
+
+      <button type="submit">Send</button>
+    </form>
+
+    <div id="formMessage">Thank you! Your message has been sent.</div>
   </div>
-
-  <form id="contactForm" class="contact-form">
-    <label>Name<input type="text" name="name" required></label>
-    <label>Email<input type="email" name="_replyto" required></label>
-    <label>Message<textarea name="message" required></textarea></label>
-    <button type="submit">Send</button>
-  </form>
-
-  <div id="formMessage"></div>
 </section>
 
 <footer>
