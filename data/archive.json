@@ -81,5 +81,19 @@
       "Power": "170 PS / 250Nm",
       "Weight": "1,250 kg"
     }
+  },
+  {
+    "title": "Mazda Roadster Special Package",
+    "image": "images/nb.jpg",
+    "alt": "Mazda Roadster",
+    "description": "日本が誇る傑作ライトウェイト。低速域のドライブの楽しさと低燃費で、移動手段としても優秀だった。",
+    "specs": {
+      "Year": "1998",
+      "Engine": "1,597 cc I4 DOHC NA",
+      "Transmission": "5MT",
+      "Drive": "FR",
+      "Power": "125 PS / 142Nm",
+      "Weight": "1,050 kg"
+    }
   }  
 ]
