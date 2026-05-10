@@ -315,7 +315,13 @@ function initGarageSlider({
 const linksData = [
   {
     name: "Blog",
-    desc: "車関連がメインのブログ、友人たちと共著です",
+    desc: "私の個人ブログ。内容は雑多。",
+    url: "/blog/",
+    icon: "pen"
+  },
+  {
+    name: "Tsukubanyan Racing",
+    desc: "私が所属している身内チームの公式サイト",
     url: "https://tsukubanyan.racing/",
     icon: "pen"
   },
