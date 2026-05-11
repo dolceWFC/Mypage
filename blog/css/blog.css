@@ -153,6 +153,11 @@ body {
   line-height: 1.9;
 }
 
+.article h1,
+.article h2 {
+  color: rgba(255,255,255,0.92);
+}
+
 .article h1 {
   font-size: 2.8rem;
   margin-bottom: 28px;
@@ -165,12 +170,73 @@ body {
 
 .article p {
   margin-bottom: 24px;
+  color: rgba(235,238,245,0.72);
+}
+
+.article ul,
+.article ol {
+  margin: 20px 0 28px;
+
+  padding-left: 1.4em;
+
+  color: rgba(235,238,245,0.72);
+}
+
+.article li {
+  margin-bottom: 10px;
+
+  line-height: 1.8;
+
+  color: rgba(235,238,245,0.72);
+}
+
+.article li::marker {
+  color: rgba(255,255,255,0.35);
 }
 
 .article img {
   width: 100%;
   border-radius: 20px;
   margin-bottom: 32px;
+}
+
+.article blockquote {
+  margin: 28px 0;
+
+  padding: 12px 12px;
+
+  border-left: 3px solid
+    rgba(120,170,255,0.45);
+
+  background:
+    rgba(255,255,255,0.03);
+
+  color:
+    rgba(255,255,255,0.78);
+
+  line-height: 1.8;
+}
+
+.article blockquote p {
+  margin: 0;
+}
+
+.article a {
+  color: rgba(220, 225, 235, 0.72);
+
+  text-decoration: underline;
+
+  text-decoration-color:
+    rgba(220,225,235,0.22);
+
+  transition: 0.2s ease;
+}
+
+.article a:hover {
+  color: rgba(255,255,255,0.96);
+
+  text-decoration-color:
+    rgba(255,255,255,0.5);
 }
 
 .article pre {
