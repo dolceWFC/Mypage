@@ -1,6 +1,6 @@
 [
   {
-    "slug": "ごあいさつ",
+    "slug": "helloworld",
     "title": "Dolce-Rheaへようこそ",
     "date": "2026-05-10",
     "summary": "はじめましてのごあいさつ",
@@ -8,7 +8,7 @@
     "file": "/blog/posts/hello.md"
   },
   {
-    "slug": "ローテンプサーモ導入",
+    "slug": "thema-thermo-switch",
     "title": "テーマで真夏の環八を駆け抜ける大作戦 part1",
     "date": "2026-05-11",
     "summary": "クーリング強化施策、第一弾。",
