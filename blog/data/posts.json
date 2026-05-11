@@ -4,7 +4,15 @@
     "title": "Dolce-Rheaへようこそ",
     "date": "2026-05-10",
     "summary": "はじめましてのごあいさつ",
-    "cover": "/blog/images//hello/hellocover.jpg",
+    "cover": "/blog/images/hello/hellocover.jpg",
     "file": "/blog/posts/hello.md"
+  },
+  {
+    "slug": "ローテンプサーモ導入",
+    "title": "テーマで真夏の環八を駆け抜ける大作戦part1",
+    "date": "2026-05-11",
+    "summary": "クーリング強化施策、第一弾。",
+    "cover": "/blog/images/thema_thermo/themathermocover.jpg",
+    "file": "/blog/posts/thema_thermo.md"
   }
 ]
