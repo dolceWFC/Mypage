@@ -116,7 +116,7 @@ body {
   width: 180px;
   height: 100%;
 
-  min-height: 120px;
+  height: 110px;
 
   object-fit: cover;
 }
