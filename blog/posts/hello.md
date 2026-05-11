@@ -1,6 +1,6 @@
 # はじめまして
 
-![hellocover.jpg](/blog/images/hellocover.jpg)
+![hellocover.jpg](/blog/images//hello/hellocover.jpg)
 
 地球と宇宙に住むすべてのみなさん、こんにちは。わたしはここ、Dolce-Rheaの管理人、Dolceです。
 
