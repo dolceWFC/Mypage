@@ -65,16 +65,6 @@ body {
   color: rgba(255,255,255,0.95);
 }
 
-.blog-header {
-  margin-bottom: 0px;
-}
-
-.blog-header h1 {
-  font-size: 3rem;
-  font-weight: 600;
-  margin-top: 12px;
-}
-
 .back-link {
   color: rgba(255,255,255,0.6);
   text-decoration: none;
@@ -154,15 +144,13 @@ body {
 }
 
 .post-title {
-  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-size: clamp(1.7rem, 3.4vw, 2.6rem);
 
   font-weight: 500;
 
-  line-height: 1.08;
+  line-height: 1.2;
 
-  letter-spacing: 0.1em;
-
-  text-transform: uppercase;
+  letter-spacing: 0.06em;
 
   color: rgba(255,255,255,0.92);
 }
