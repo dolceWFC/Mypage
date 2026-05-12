@@ -21,9 +21,11 @@ body {
 
 .blog-container {
   width: 100%;
-  max-width: 860px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 60px 24px;
+
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .blogpage-label {
@@ -301,6 +303,10 @@ body {
 
 @media (max-width: 700px) {
 
+  .blog-container {
+    padding: 60px 20px;
+  }
+  
   .post-card {
     flex-direction: column;
   }
