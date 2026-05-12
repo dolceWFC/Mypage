@@ -23,7 +23,7 @@ async function loadArticle() {
     return;
   }
 
-  document.getElementById("post-title").textContent =
+  document.getElementById("post-title").innerHTML =
   post.title;
 
   document.getElementById("post-date").textContent =
