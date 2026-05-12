@@ -14,5 +14,13 @@
     "summary": "クーリング強化施策、第一弾。",
     "cover": "/blog/images/thema_thermo/32.jpg",
     "file": "/blog/posts/thema_thermo.md"
+  },
+  {
+    "slug": "156gta-review",
+    "title": "アルファロメオ156GTA 徹底レビュー",
+    "date": "2026-05-12",
+    "summary": "Dolceの愛車、156GTAの魅力を余すところなくお伝えする愛車紹介",
+    "cover": "/blog/images/156gta-review/001.webp",
+    "file": "/blog/posts/156gta-review.md"
   }
 ]
