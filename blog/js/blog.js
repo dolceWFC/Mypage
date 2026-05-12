@@ -18,7 +18,7 @@ async function loadPosts() {
         <img src="${post.cover}" class="post-cover">
 
         <div class="post-content">
-          <div class="post-date">${post.date}</div>
+          <div class="post-card-date">${post.date}</div>
 
           <h2>${post.title}</h2>
 
