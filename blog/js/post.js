@@ -23,6 +23,12 @@ async function loadArticle() {
     return;
   }
 
+  document.getElementById("post-title").textContent =
+  post.title;
+
+  document.getElementById("post-date").textContent =
+  post.date;
+
   document.title =
     `${post.title} | Dolce-Rhea`;
 
