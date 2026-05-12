@@ -131,7 +131,7 @@ body {
   gap: 6px;
 }
 
-.post-date {
+.post-card-date {
   font-size: 0.78rem;
   opacity: 0.45;
 }
@@ -148,6 +148,36 @@ body {
 }
 
 /* ===== Article ===== */
+.post-hero {
+  margin-top: 18px;
+  margin-bottom: 56px;
+}
+
+.post-title {
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+
+  font-weight: 500;
+
+  line-height: 1.08;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,0.92);
+}
+
+.post-hero .post-date {
+  margin-bottom: 14px;
+
+  font-size: 0.8rem;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,0.6);
+}
 
 .article {
   line-height: 1.9;
@@ -155,12 +185,16 @@ body {
 
 .article h1,
 .article h2 {
-  color: rgba(255,255,255,0.92);
+  color: rgba(255,255,255,0.82);
 }
 
 .article h1 {
-  font-size: 2.8rem;
-  margin-bottom: 28px;
+  font-size: 2rem;
+
+  margin-top: 56px;
+  margin-bottom: 20px;
+
+  letter-spacing: 0.08em;
 }
 
 .article h2 {
@@ -222,7 +256,7 @@ body {
 }
 
 .article a {
-  color: rgba(220, 225, 235, 0.72);
+  color: rgba(220, 225, 235, 0.6);
 
   text-decoration: underline;
 
@@ -233,7 +267,7 @@ body {
 }
 
 .article a:hover {
-  color: rgba(255,255,255,0.96);
+  color: rgba(255,255,255,0.92);
 
   text-decoration-color:
     rgba(255,255,255,0.5);
