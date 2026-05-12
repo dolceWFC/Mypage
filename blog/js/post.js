@@ -29,8 +29,10 @@ async function loadArticle() {
   document.getElementById("post-date").textContent =
   post.date;
 
+  const plainTitle = post.title.replace(/<br\s*\/?>/g, " ");
+
   document.title =
-    `${post.title} | Dolce-Rhea`;
+    `${plainTitle} | Dolce-Rhea`;
 
   const mdResponse = await fetch(post.file);
 
