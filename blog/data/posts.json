@@ -5,7 +5,7 @@
     "date": "2026-05-10",
     "summary": "はじめましてのごあいさつ",
     "cover": "/blog/images/hello/hellocover.jpg",
-    "file": "/blog/posts/hello.md"
+    "file": "./blog/posts/hello.md"
   },
   {
     "slug": "thema-thermo-switch",
@@ -13,7 +13,7 @@
     "date": "2026-05-11",
     "summary": "クーリング強化施策、第一弾",
     "cover": "/blog/images/thema_thermo/32.jpg",
-    "file": "/blog/posts/thema_thermo.md"
+    "file": "./blog/posts/thema_thermo.md"
   },
   {
     "slug": "156gta-review",
@@ -21,7 +21,7 @@
     "date": "2026-05-12",
     "summary": "Dolceの愛車、156GTAの魅力を余すところなくお伝えする愛車紹介",
     "cover": "/blog/images/156gta-review/001.webp",
-    "file": "/blog/posts/156gta-review.md"
+    "file": "./blog/posts/156gta-review.md"
   },
   {
     "slug": "thema-ac-001",
@@ -29,6 +29,6 @@
     "date": "2026-05-14",
     "summary": "工具無しで簡易診断",
     "cover": "/blog/images/thema-ac-001/cover.jpg",
-    "file": "/blog/posts/thema-ac-001.md"
+    "file": "./blog/posts/thema-ac-001.md"
   }
 ]
