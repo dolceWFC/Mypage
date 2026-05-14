@@ -11,7 +11,7 @@
     "slug": "thema-thermo-switch",
     "title": "テーマで真夏の環八を駆け抜けたい<br>Part1",
     "date": "2026-05-11",
-    "summary": "クーリング強化施策、第一弾。",
+    "summary": "クーリング強化施策、第一弾",
     "cover": "/blog/images/thema_thermo/32.jpg",
     "file": "/blog/posts/thema_thermo.md"
   },
@@ -22,5 +22,13 @@
     "summary": "Dolceの愛車、156GTAの魅力を余すところなくお伝えする愛車紹介",
     "cover": "/blog/images/156gta-review/001.webp",
     "file": "/blog/posts/156gta-review.md"
+  },
+  {
+    "slug": "thema-ac-001",
+    "title": "テーマのエアコン修理Part1",
+    "date": "2026-05-14",
+    "summary": "マニホールド無しで自己診断したい方は必(?)見",
+    "cover": "/blog/images/thema-ac-001/cover.jpg",
+    "file": "/blog/posts/thema-ac-001.md"
   }
 ]
