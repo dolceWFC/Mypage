@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>テーマのエアコン修理Part1 | Dolce-Rhea</title>
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="テーマのエアコン修理Part1">
+    <meta property="og:description" content="工具無しで簡易診断">
+    <meta property="og:url" content="https://dolce-rhea.live/blog/thema-ac-001/">
+    <meta property="og:image" content="https://dolce-rhea.live/blog/images/thema-ac-001/cover.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="テーマのエアコン修理Part1">
+    <meta name="twitter:description" content="工具無しで簡易診断">
+    <meta name="twitter:image" content="https://dolce-rhea.live/blog/images/thema-ac-001/cover.jpg">
+
+    <link rel="canonical" href="https://dolce-rhea.live/blog/thema-ac-001/">
+
+    <link rel="stylesheet" href="/blog/css/blog.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+
+    <div class="blog-container">
+
+        <header class="blog-header">
+            <a href="/blog/" class="back-link">← Blog</a>
+
+            <div class="post-hero">
+                <p class="post-date">2026-05-14</p>
+                <h1 class="post-title">テーマのエアコン修理Part1</h1>
+            </div>
+        </header>
+
+        <article id="article" class="article"></article>
+
+    </div>
+
+    <script>
+        fetch("./post.md")
+            .then(res => res.text())
+            .then(md => {
+                document.getElementById("article").innerHTML =
+                    marked.parse(md);
+            });
+    </script>
+
+</body>
+
+</html>
