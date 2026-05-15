@@ -315,7 +315,7 @@ function initGarageSlider({
 const linksData = [
   {
     name: "Blog",
-    desc: "私の個人ブログ。内容は雑多。",
+    desc: "私の個人ブログ、内容は雑多",
     url: "/blog/",
     icon: "pen"
   },
