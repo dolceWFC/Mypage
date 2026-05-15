@@ -8,6 +8,8 @@ async function loadPosts() {
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .forEach(post => {
 
+      const plainTitle = post.title.replace(/<br\s*\/?>/g, " ");
+
       const card = document.createElement("a");
 
       card.className = "post-card";
@@ -20,7 +22,7 @@ async function loadPosts() {
         <div class="post-content">
           <div class="post-card-date">${post.date}</div>
 
-          <h2>${post.title}</h2>
+          <h2>${plainTitle}</h2>
 
           <p>${post.summary}</p>
         </div>
