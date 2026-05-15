@@ -13,14 +13,17 @@ const template = fs.readFileSync(
 
 posts.forEach(post => {
 
+    const plainTitle = post.title.replace(/<br>/g, " ");
+
     const html = template
-        .replaceAll("{{title}}", post.title.replace(/<br>/g, " "))
+        .replaceAll("{{title}}", post.title)
+        .replaceAll("{{plainTitle}}", plainTitle)
         .replaceAll("{{summary}}", post.summary)
         .replaceAll("{{slug}}", post.slug)
         .replaceAll("{{cover}}", post.cover)
         .replaceAll("{{date}}", post.date);
 
-    const dir = `./blog/${post.slug}`;
+    const dir = `./blog/articles/${post.slug}`;
 
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);
@@ -45,7 +48,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 
 ${posts.map(post => `
   <url>
-    <loc>${DOMAIN}/blog/${post.slug}/</loc>
+    <loc>${DOMAIN}/blog/articles/${post.slug}/</loc>
     <lastmod>${post.date}</lastmod>
   </url>
 `).join("")}
