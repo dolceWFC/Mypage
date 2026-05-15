@@ -12,7 +12,7 @@ async function loadPosts() {
 
       card.className = "post-card";
 
-      card.href = `/blog/${post.slug}/`;
+      card.href = `/blog/articles/${post.slug}/`;
 
       card.innerHTML = `
         <img src="${post.cover}" class="post-cover">
