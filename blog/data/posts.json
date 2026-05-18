@@ -34,5 +34,14 @@
     "cover": "/blog/images/thema-ac-001/cover.jpg",
     "file": "./blog/posts/thema-ac-001.md",
     "tags": ["テーマ", "整備"]
+  },
+  {
+    "slug": "copen-keep-it-open",
+    "title": "Keep it OPEN.<br>OPEN DRIVE DAYレポート",
+    "date": "2026-05-17",
+    "summary": "ダイハツ主催の大規模コペンオフに参加してきました",
+    "cover": "/blog/images/copen-keep-it-open/cover.png",
+    "file": "./blog/posts/copen-keep-it-open.md",
+    "tags": ["雑記", "イベント"]
   }
 ]
