@@ -180,12 +180,6 @@ async function loadPosts() {
 
           <p>${post.summary}</p>
 
-          <div class="post-tags">
-            ${(post.tags || []).map(tag => `
-              <span class="tag">${tag}</span>
-            `).join("")}
-          </div>
-
         </div>
       `;
 
