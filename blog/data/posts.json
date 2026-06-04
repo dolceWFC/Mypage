@@ -81,5 +81,17 @@
       "156GTA",
       "整備"
     ]
+  },
+  {
+    "slug": "colt-timing-belt-replacement",
+    "title": "コルト整備、<br>タイミングベルト交換など",
+    "date": "2026-06-04",
+    "summary": "なかなかの重整備",
+    "cover": "/blog/images/colt-timing-belt-replacement/cover.jpeg",
+    "file": "./blog/posts/colt-timing-belt-replacement.md",
+    "tags": [
+      "コルト",
+      "整備"
+    ]
   }
 ]
