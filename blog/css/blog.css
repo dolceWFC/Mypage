@@ -74,6 +74,7 @@ body {
 
 .blog-controls {
   display: flex;
+  align-items: flex-start;
   gap: 12px;
   margin-bottom: 32px;
 }
@@ -368,6 +369,15 @@ body {
 
   .blog-container {
     padding: 60px 20px;
+  }
+
+  .blog-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .blog-controls select {
+    width: fit-content;
   }
   
   .post-card {
