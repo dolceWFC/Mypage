@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>読書感想文 湾岸ミッドナイト原作編 | Dolce-Rhea</title>
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="読書感想文 湾岸ミッドナイト原作編">
+    <meta property="og:description" content="なかなかの重整備">
+    <meta property="og:url" content="https://dolce-rhea.live/blog/articles/wangan-midnight-impression/">
+    <meta property="og:image" content="https://dolce-rhea.live/blog/images/midnight-impression/cover.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="読書感想文 湾岸ミッドナイト原作編">
+    <meta name="twitter:description" content="なかなかの重整備">
+    <meta name="twitter:image" content="https://dolce-rhea.live/blog/images/midnight-impression/cover.jpg">
+
+    <link rel="canonical" href="https://dolce-rhea.live/blog/articles/wangan-midnight-impression/">
+
+    <link rel="stylesheet" href="/blog/css/blog.css">
+
+    <link rel="icon" type="image/jpeg" href="/images/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+
+    <div class="blog-container">
+
+        <header class="blog-header">
+            <a href="/blog/" class="back-link">← Blog</a>
+
+            <div class="post-hero">
+                <p class="post-date">2026-06-06</p>
+                <h1 class="post-title">読書感想文<br>湾岸ミッドナイト原作編</h1>
+            </div>
+        </header>
+
+        <article id="article" class="article"></article>
+
+    </div>
+
+    <script>
+        fetch("./post.md")
+            .then(res => res.text())
+            .then(md => {
+                document.getElementById("article").innerHTML =
+                    marked.parse(md);
+            });
+    </script>
+
+</body>
+
+</html>
