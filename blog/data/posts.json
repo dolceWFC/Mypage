@@ -117,5 +117,17 @@
       "テーマ",
       "整備"
     ]
+  },
+  {
+    "slug": "thema-idle-repair-001",
+    "title": "テーマのアイドル不良修理<br>part1",
+    "date": "2026-06-15",
+    "summary": "つくばにゃんレーシングより移植",
+    "cover": "/blog/images/thema-idle-repair-001/cover.jpeg",
+    "file": "./blog/posts/thema-idle-repair-001.md",
+    "tags": [
+      "テーマ",
+      "整備"
+    ]
   }
 ]
