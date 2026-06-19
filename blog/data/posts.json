@@ -12,7 +12,7 @@
   },
   {
     "slug": "thema-thermo-switch",
-    "title": "テーマで真夏の環八を駆け抜けたい<br>Part1",
+    "title": "ランチアテーマで真夏の環八を駆け抜けたい<br>Part1",
     "date": "2026-05-11",
     "summary": "クーリング強化施策、第一弾",
     "cover": "/blog/images/thema_thermo/32.jpg",
@@ -36,7 +36,7 @@
   },
   {
     "slug": "thema-ac-001",
-    "title": "テーマのエアコン修理Part1",
+    "title": "ランチアテーマのエアコン修理<br>Part1",
     "date": "2026-05-14",
     "summary": "工具無しで簡易診断",
     "cover": "/blog/images/thema-ac-001/cover.jpg",
@@ -72,7 +72,7 @@
   },
   {
     "slug": "156gta-cleaning",
-    "title": "156GTAのインマニを綺麗にしよう",
+    "title": "アルファロメオ156GTAのインマニを綺麗にしよう",
     "date": "2026-05-28",
     "summary": "お掃除の時間です",
     "cover": "/blog/images/156gta-cleaning/cover.jpeg",
@@ -84,7 +84,7 @@
   },
   {
     "slug": "colt-timing-belt-replacement",
-    "title": "コルト整備、<br>タイミングベルト交換など",
+    "title": "コルトラリーアートVer.R整備、<br>タイミングベルト交換など",
     "date": "2026-06-04",
     "summary": "なかなかの重整備",
     "cover": "/blog/images/colt-timing-belt-replacement/cover.jpeg",
@@ -108,7 +108,7 @@
   },
   {
     "slug": "thema-fuel-pipe-repair",
-    "title": "テーマのガソリン漏れ修理",
+    "title": "ランチアテーマのガソリン漏れ修理",
     "date": "2026-06-13",
     "summary": "時間のかかる修理でした",
     "cover": "/blog/images/thema-fuel-pipe-repair/cover.jpeg",
@@ -120,11 +120,22 @@
   },
   {
     "slug": "thema-idle-repair-001",
-    "title": "テーマのアイドル不良修理<br>part1",
+    "title": "ランチアテーマのアイドル不良修理<br>Part1",
     "date": "2026-06-15",
     "summary": "つくばにゃんレーシングより移植",
     "cover": "/blog/images/thema-idle-repair-001/cover.jpeg",
     "file": "./blog/posts/thema-idle-repair-001.md",
+    "tags": [
+      "テーマ",
+      "整備"
+    ]
+  },{
+    "slug": "thema-ac-002",
+    "title": "ランチアテーマのエアコン修理<br>Part2",
+    "date": "2026-06-19",
+    "summary": "エアコンガスを入れ替えました",
+    "cover": "/blog/images/thema-ac-002/cover.jpeg",
+    "file": "./blog/posts/thema-ac-002.md",
     "tags": [
       "テーマ",
       "整備"
