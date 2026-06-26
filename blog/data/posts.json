@@ -140,5 +140,16 @@
       "テーマ",
       "整備"
     ]
+  },{
+    "slug": "thema-idle-repair-002",
+    "title": "ランチアテーマのアイドル不良修理<br>Part2",
+    "date": "2026-06-26",
+    "summary": "納車以来最高の調子を取り戻すまで",
+    "cover": "/blog/images/thema-idle-repair-002/cover.jpeg",
+    "file": "./blog/posts/thema-idle-repair-002.md",
+    "tags": [
+      "テーマ",
+      "整備"
+    ]
   }
 ]
