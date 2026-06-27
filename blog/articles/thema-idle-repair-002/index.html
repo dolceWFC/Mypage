@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ランチアテーマのアイドル不良修理 Part2 | Dolce-Rhea</title>
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ランチアテーマのアイドル不良修理 Part2">
+    <meta property="og:description" content="納車以来最高の調子を取り戻すまで">
+    <meta property="og:url" content="https://dolce-rhea.live/blog/articles/thema-idle-repair-002/">
+    <meta property="og:image" content="https://dolce-rhea.live/blog/images/thema-idle-repair-002/cover.jpeg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ランチアテーマのアイドル不良修理 Part2">
+    <meta name="twitter:description" content="納車以来最高の調子を取り戻すまで">
+    <meta name="twitter:image" content="https://dolce-rhea.live/blog/images/thema-idle-repair-002/cover.jpeg">
+
+    <link rel="canonical" href="https://dolce-rhea.live/blog/articles/thema-idle-repair-002/">
+
+    <link rel="stylesheet" href="/blog/css/blog.css">
+
+    <link rel="icon" type="image/jpeg" href="/images/favicon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+
+    <div class="blog-container">
+
+        <header class="blog-header">
+            <a href="/blog/" class="back-link">← Blog</a>
+
+            <div class="post-hero">
+                <p class="post-date">2026-06-27</p>
+                <h1 class="post-title">ランチアテーマのアイドル不良修理<br>Part2</h1>
+            </div>
+        </header>
+
+        <article id="article" class="article"></article>
+
+    </div>
+
+    <script>
+        fetch("./post.md")
+            .then(res => res.text())
+            .then(md => {
+                document.getElementById("article").innerHTML =
+                    marked.parse(md);
+            });
+    </script>
+
+</body>
+
+</html>
