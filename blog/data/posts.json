@@ -151,5 +151,16 @@
       "テーマ",
       "整備"
     ]
+  },{
+    "slug": "nnns-001",
+    "title": "アブソルと挑む<br>ポケモンチャンピオンズS3M-B",
+    "date": "2026-07-05",
+    "summary": "約5年ぶり?!ポケモン対戦に復帰です",
+    "cover": "/blog/images/nnns-001/cover.jpeg",
+    "file": "./blog/posts/nnns-001.md",
+    "tags": [
+      "ポケモン",
+      "ゲーム"
+    ]
   }
 ]
