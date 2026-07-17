@@ -58,6 +58,33 @@
         }
     </script>
 
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org",
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+            {
+            "@type":"ListItem",
+            "position":1,
+            "name":"Dolce-Rhea",
+            "item":"https://dolce-rhea.live/"
+            },
+            {
+            "@type":"ListItem",
+            "position":2,
+            "name":"Blog",
+            "item":"https://dolce-rhea.live/blog/"
+            },
+            {
+            "@type":"ListItem",
+            "position":3,
+            "name":"{{plainTitle}}",
+            "item":"https://dolce-rhea.live/blog/articles/{{slug}}/"
+            }
+        ]
+    }
+    </script>
+
     <link rel="canonical" href="https://dolce-rhea.live/blog/articles/{{slug}}/">
 
     <link rel="stylesheet" href="/blog/css/blog.css">
