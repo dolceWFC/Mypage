@@ -151,5 +151,16 @@
       "テーマ",
       "整備"
     ]
+  },{
+    "slug": "thema-ac-003",
+    "title": "ランチアテーマのエアコンが壊れた！",
+    "date": "2026-07-17",
+    "summary": "エアコンレスになってしまいました",
+    "cover": "/blog/images/thema-ac-003/cover.jpeg",
+    "file": "./blog/posts/thema-ac-003.md",
+    "tags": [
+      "テーマ",
+      "整備"
+    ]
   }
 ]
