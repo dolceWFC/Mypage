@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+
 const DOMAIN = "https://dolce-rhea.live";
 
 const posts = JSON.parse(
@@ -10,6 +11,8 @@ const template = fs.readFileSync(
     "./blog/template.html",
     "utf-8"
 );
+
+// ===== 記事生成 =====
 
 posts.forEach(post => {
 
@@ -26,7 +29,7 @@ posts.forEach(post => {
     const dir = `./blog/articles/${post.slug}`;
 
     if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir);
+        fs.mkdirSync(dir, { recursive: true });
     }
 
     fs.writeFileSync(
@@ -40,16 +43,35 @@ posts.forEach(post => {
     );
 
     console.log(`Generated: ${post.slug}`);
-
 });
+
+
+// ===== Sitemap生成 =====
+
+const today = new Date().toISOString().split("T")[0];
+
+const sitemapUrls = [
+    {
+        loc: `${DOMAIN}/`,
+        lastmod: today,
+    },
+    {
+        loc: `${DOMAIN}/blog/`,
+        lastmod: today,
+    },
+    ...posts.map(post => ({
+        loc: `${DOMAIN}/blog/articles/${post.slug}/`,
+        lastmod: post.date,
+    }))
+];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-${posts.map(post => `
+${sitemapUrls.map(url => `
   <url>
-    <loc>${DOMAIN}/blog/articles/${post.slug}/</loc>
-    <lastmod>${post.date}</lastmod>
+    <loc>${url.loc}</loc>
+    <lastmod>${url.lastmod}</lastmod>
   </url>
 `).join("")}
 
