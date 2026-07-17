@@ -7,22 +7,62 @@
 
     <title>{{plainTitle}} | Dolce-Rhea</title>
 
+    <meta name="description" content="{{summary}}">
+
     <meta property="og:type" content="article">
     <meta property="og:title" content="{{plainTitle}}">
     <meta property="og:description" content="{{summary}}">
     <meta property="og:url" content="https://dolce-rhea.live/blog/articles/{{slug}}/">
     <meta property="og:image" content="https://dolce-rhea.live{{cover}}">
+    <meta property="article:published_time" content="{{date}}">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{plainTitle}}">
     <meta name="twitter:description" content="{{summary}}">
     <meta name="twitter:image" content="https://dolce-rhea.live{{cover}}">
 
+        <!-- Structured Data -->
+    <script type="application/ld+json">
+        {
+            "@context":"https://schema.org",
+            "@type":"BlogPosting",
+
+            "headline":"{{plainTitle}}",
+
+            "description":"{{summary}}",
+
+            "image":"https://dolce-rhea.live{{cover}}",
+
+            "url":"https://dolce-rhea.live/blog/articles/{{slug}}/",
+
+            "mainEntityOfPage":{
+                "@type":"WebPage",
+                "@id":"https://dolce-rhea.live/blog/articles/{{slug}}/"
+            },
+
+            "datePublished":"{{date}}",
+
+            "dateModified":"{{date}}",
+
+            "inLanguage":"ja",
+
+            "author":{
+                "@type":"Person",
+                "name":"Dolce"
+            },
+
+            "publisher":{
+                "@type":"Person",
+                "name":"Dolce"
+            }
+        }
+    </script>
+
     <link rel="canonical" href="https://dolce-rhea.live/blog/articles/{{slug}}/">
 
     <link rel="stylesheet" href="/blog/css/blog.css">
 
-    <link rel="icon" type="image/jpeg" href="/images/favicon.ico">
+    <link rel="icon" href="/images/favicon.ico">
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
