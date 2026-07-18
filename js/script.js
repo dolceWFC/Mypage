@@ -401,6 +401,29 @@ function renderLinks() {
 /* =========================
    Data Load
 ========================= */
+async function preloadImages(cars) {
+
+  await Promise.all(
+
+    cars.map(car =>
+
+      new Promise(resolve => {
+
+        const img = new Image();
+
+        img.onload = resolve;
+        img.onerror = resolve;
+
+        img.src = car.image;
+
+      })
+
+    )
+
+  );
+
+}
+
 async function loadSliders() {
   try {
     const [carsResponse, archiveResponse] = await Promise.all([
@@ -418,6 +441,11 @@ async function loadSliders() {
 
     const cars = await carsResponse.json();
     const archiveCars = await archiveResponse.json();
+
+    await preloadImages([
+      ...cars,
+      ...archiveCars
+    ]); 
 
     if (!Array.isArray(cars) || cars.length === 0) {
       throw new Error("cars.jsonの中身が空、または不正です");
@@ -475,43 +503,116 @@ async function loadSliders() {
 }
 
 /* =========================
-   Contact Form + Footer Year
+   Loader
 ========================= */
-window.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("year").textContent = new Date().getFullYear();
 
-  renderLinks();
-  loadSliders();
+async function showLoader() {
 
-  const form = document.getElementById("contactForm");
-  const message = document.getElementById("formMessage");
+  const DAY = 24 * 60 * 60 * 1000;
+  const MIN_LOADING = 700;
+
+  const lastVisit =
+    Number(localStorage.getItem("lastVisit")) || 0;
+
+  const shouldShow =
+    Date.now() - lastVisit > DAY;
+
+  if (!shouldShow) {
+    document.body.classList.add("loaded");
+    return;
+  }
+
+  await new Promise(resolve =>
+    setTimeout(resolve, 700)
+  );
+
+  localStorage.setItem(
+    "lastVisit",
+    Date.now()
+  );
+
+  document.body.classList.add("loaded");
+
+}
+
+/* contact form */
+
+function initContactForm() {
+
+  const form =
+    document.getElementById("contactForm");
+
+  const message =
+    document.getElementById("formMessage");
+
+  if (!form) return;
 
   form.addEventListener("submit", async (e) => {
+
     e.preventDefault();
 
     const data = new FormData(form);
 
     try {
-      const response = await fetch("https://formspree.io/f/xpqjpbyq", {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" }
-      });
+
+      const response = await fetch(
+        "https://formspree.io/f/xpqjpbyq",
+        {
+          method: "POST",
+          body: data,
+          headers: {
+            Accept: "application/json"
+          }
+        }
+      );
 
       if (response.ok) {
+
         message.style.display = "block";
         message.style.color = "#0f0";
-        message.textContent = "Thank you! Your message has been sent.";
+        message.textContent =
+          "Thank you! Your message has been sent.";
+
         form.reset();
+
       } else {
+
         message.style.display = "block";
         message.style.color = "#f33";
-        message.textContent = "Oops! There was a problem.";
+        message.textContent =
+          "Oops! There was a problem.";
+
       }
-    } catch (error) {
+
+    } catch {
+
       message.style.display = "block";
       message.style.color = "#f33";
-      message.textContent = "Oops! Something went wrong.";
+      message.textContent =
+        "Oops! Something went wrong.";
+
     }
+
   });
-});
+
+}
+
+/* domcontentloaded */
+
+window.addEventListener(
+  "DOMContentLoaded",
+  async () => {
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    renderLinks();
+
+    await loadSliders();
+
+    await showLoader();
+
+    initContactForm();
+
+  }
+);
