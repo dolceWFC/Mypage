@@ -48,13 +48,12 @@
   </script>
   
   <script>
-  (() => {
-    const last = Number(sessionStorage.getItem("blogLoaderShown") || 0);
-
-    if (Date.now() - last < 24 * 60 * 60 * 1000) {
-      document.documentElement.classList.add("skip-loader");
-    }
-  })();
+  if (
+    Date.now() - (Number(localStorage.getItem("blogLoaderShown")) || 0)
+    < 24 * 60 * 60 * 1000
+  ) {
+    document.documentElement.classList.add("skip-loader");
+  }
   </script>
 </head>
 
