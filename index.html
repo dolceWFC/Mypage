@@ -52,6 +52,17 @@
   </script>
   
   <link rel="canonical" href="https://dolce-rhea.live/">
+  
+  <script>
+  (() => {
+    const DAY = 24 * 60 * 60 * 1000;
+    const lastVisit = Number(localStorage.getItem("lastVisit")) || 0;
+
+    if (Date.now() - lastVisit <= DAY) {
+      document.documentElement.classList.add("skip-loader");
+    }
+  })();
+  </script>
 </head>
 
 <body>
