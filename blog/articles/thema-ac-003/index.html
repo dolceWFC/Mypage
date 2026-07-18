@@ -93,17 +93,17 @@
     <link rel="stylesheet" href="/blog/css/blog.css">
 
     <script>
+    const articleLoaderKey =
+    `articleLoaderShown:${location.pathname}`;
+
     if (
-    Date.now() - (Number(localStorage.getItem("articleLoaderShown")) || 0)
+    Date.now() -
+        (Number(localStorage.getItem(articleLoaderKey)) || 0)
     < 24 * 60 * 60 * 1000
     ) {
     document.documentElement.classList.add("skip-loader");
     }
     </script>
-
-    <link rel="icon" href="/images/favicon.ico">
-
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
@@ -139,51 +139,74 @@
     const DAY = 24 * 60 * 60 * 1000;
     const MIN_LOADING = 700;
 
-    async function loadArticle() {
+    const loaderKey =
+    `articleLoaderShown:${location.pathname}`;
 
-        const lastVisit =
-            Number(localStorage.getItem("articleLoaderShown")) || 0;
+    async function waitArticleImages() {
 
-        const shouldShow =
-            Date.now() - lastVisit > DAY;
+    const images = [
+        ...document.querySelectorAll(".article img")
+    ];
 
-        const markdownPromise =
-            fetch("./post.md")
-                .then(res => res.text());
+    await Promise.all(
 
-        if (!shouldShow) {
+        images.map(img => {
 
-            document.body.classList.add("skip-loader");
-
-            const md = await markdownPromise;
-
-            document.getElementById("article").innerHTML =
-                marked.parse(md);
-
-            document.body.classList.add("loaded");
-
-            return;
+        if (img.complete) {
+            return Promise.resolve();
         }
 
-        const [md] = await Promise.all([
+        return new Promise(resolve => {
 
-            markdownPromise,
+            img.onload = resolve;
+            img.onerror = resolve;
 
-            new Promise(resolve =>
-                setTimeout(resolve, MIN_LOADING)
-            )
+        });
 
-        ]);
+        })
 
-        document.getElementById("article").innerHTML =
-            marked.parse(md);
+    );
 
-        localStorage.setItem(
-            "articleLoaderShown",
-            Date.now()
-        );
+    }
 
+    async function loadArticle() {
+
+    const lastVisit =
+        Number(localStorage.getItem(loaderKey)) || 0;
+
+    const shouldShow =
+        Date.now() - lastVisit > DAY;
+
+    const md = await fetch("./post.md")
+        .then(res => res.text());
+
+    document.getElementById("article").innerHTML =
+        marked.parse(md);
+
+    if (!shouldShow) {
+
+        document.body.classList.add("skip-loader");
         document.body.classList.add("loaded");
+        return;
+
+    }
+
+    await Promise.all([
+
+        waitArticleImages(),
+
+        new Promise(resolve =>
+        setTimeout(resolve, MIN_LOADING)
+        )
+
+    ]);
+
+    localStorage.setItem(
+        loaderKey,
+        Date.now()
+    );
+
+    document.body.classList.add("loaded");
 
     }
 
