@@ -151,6 +151,14 @@ body.skip-loader #loader {
     transition: none;
 }
 
+html.skip-loader #loader {
+    display: none;
+}
+
+html.skip-loader > body > *:not(#loader) {
+    visibility: visible;
+}
+
 /* =========================
    Hero
 ========================= */
