@@ -120,6 +120,8 @@
             .then(md => {
                 document.getElementById("article").innerHTML =
                     marked.parse(md);
+                
+                document.body.classList.add("loaded");
             });
     </script>
 
