@@ -19,6 +19,31 @@ body {
   min-height: 100vh;
 }
 
+#loadingScreen{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background:#000;
+
+  transition:
+    opacity .4s,
+    visibility .4s;
+}
+
+#loadingScreen.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+.skip-loader #loadingScreen{
+  display:none;
+}
+
 .blog-container {
   width: 100%;
   max-width: 760px;
