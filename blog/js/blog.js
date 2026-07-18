@@ -212,26 +212,39 @@ async function loadPosts() {
 
   renderPosts();
 
-  if (!document.documentElement.classList.contains("skip-loader")) {
+  const DAY = 24 * 60 * 60 * 1000;
+  const MIN_LOADING = 700;
+
+  const lastVisit =
+    Number(localStorage.getItem("blogLoaderShown")) || 0;
+
+  const shouldShow =
+    Date.now() - lastVisit > DAY;
+
+  if (!shouldShow) {
+
+    document.body.classList.add("skip-loader");
+    document.body.classList.add("loaded");
+
+  } else {
 
     await Promise.all([
 
       waitCoverImages(),
 
       new Promise(resolve =>
-        setTimeout(resolve, 700)
+        setTimeout(resolve, MIN_LOADING)
       )
 
     ]);
-
-    document
-      .getElementById("loadingScreen")
-      .classList.add("hide");
 
     localStorage.setItem(
       "blogLoaderShown",
       Date.now()
     );
+
+    document.body.classList.add("loaded");
+
   }
 
   sortSelect.addEventListener("change", renderPosts);
