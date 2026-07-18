@@ -87,20 +87,22 @@ section.active {
 }
 
 .loader-content h1{
-    font-size:2rem;
-    letter-spacing:.18em;
-}
 
-.loader-content p{
-    margin-top:12px;
-    opacity:.6;
+    font-size:1.5rem;
+
+    font-weight:400;
+
+    letter-spacing:.18em;
+
+    color:rgba(255,255,255,.92);
+
 }
 
 .loader-bar{
     width:220px;
     height:2px;
 
-    margin:40px auto 0;
+    margin:22px auto 0;
 
     background:rgba(255,255,255,.15);
 
