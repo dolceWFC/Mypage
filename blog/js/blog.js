@@ -1,3 +1,26 @@
+async function waitCoverImages() {
+
+  const covers = [
+    ...document.querySelectorAll(".post-cover")
+  ];
+
+  await Promise.all(
+    covers.map(img => {
+
+      if (img.complete) return Promise.resolve();
+
+      return new Promise(resolve => {
+
+        img.onload = resolve;
+        img.onerror = resolve;
+
+      });
+
+    })
+  );
+
+}
+
 async function loadPosts() {
 
   const response = await fetch("/blog/data/posts.json");
@@ -188,6 +211,28 @@ async function loadPosts() {
   }
 
   renderPosts();
+
+  if (!document.documentElement.classList.contains("skip-loader")) {
+
+    await Promise.all([
+
+      waitCoverImages(),
+
+      new Promise(resolve =>
+        setTimeout(resolve, 700)
+      )
+
+    ]);
+
+    document
+      .getElementById("loadingScreen")
+      .classList.add("hide");
+
+    localStorage.setItem(
+      "blogLoaderShown",
+      Date.now()
+    );
+  }
 
   sortSelect.addEventListener("change", renderPosts);
 }
