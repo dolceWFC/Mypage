@@ -147,9 +147,8 @@ body.loaded > *:not(#loader){
     transition:opacity .8s;
 }
 
-body.loaded > *:not(#loader){
-    opacity:1;
-    transition:opacity .8s ease;
+body.skip-loader #loader {
+    transition: none;
 }
 
 /* =========================
