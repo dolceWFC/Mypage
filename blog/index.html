@@ -45,41 +45,57 @@
         }
       ]
     }
-  </script>  
+  </script>
+  
+  <script>
+  (() => {
+    const last = Number(sessionStorage.getItem("blogLoaderShown") || 0);
+
+    if (Date.now() - last < 24 * 60 * 60 * 1000) {
+      document.documentElement.classList.add("skip-loader");
+    }
+  })();
+  </script>
 </head>
 
 <body>
 
-<div class="blog-container">
-
-  <a href="/#links" class="back-link">
-    ← Links
-  </a>
-
-  <div class="blogpage-label">
-    BLOG
-    <span class="blogpage-sub">
-      記事一覧
-    </span>
+  <div id="loadingScreen">
+    <div class="loader-logo">
+      Dolce-Rhea
+    </div>
   </div>
 
-  <div class="blog-controls">
+  <div class="blog-container">
 
-    <select id="sortSelect">
-      <option value="new">新しい順</option>
-      <option value="old">古い順</option>
-      <option value="title">名前順</option>
-    </select>
+    <a href="/#links" class="back-link">
+      ← Links
+    </a>
 
-    <div id="tagFilters" class="tag-filters"></div>
+    <div class="blogpage-label">
+      BLOG
+      <span class="blogpage-sub">
+        記事一覧
+      </span>
+    </div>
+
+    <div class="blog-controls">
+
+      <select id="sortSelect">
+        <option value="new">新しい順</option>
+        <option value="old">古い順</option>
+        <option value="title">名前順</option>
+      </select>
+
+      <div id="tagFilters" class="tag-filters"></div>
+
+    </div>
+
+    <main id="postsList" class="posts-list"></main>
 
   </div>
 
-  <main id="postsList" class="posts-list"></main>
-
-</div>
-
-<script src="/blog/js/blog.js"></script>
+  <script src="/blog/js/blog.js"></script>
 
 </body>
 </html>
