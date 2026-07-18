@@ -143,8 +143,6 @@ body:not(.loaded) > *:not(#loader){
 
 body.loaded > *:not(#loader){
     visibility:visible;
-    opacity:1;
-    transition:opacity .8s;
 }
 
 body.skip-loader #loader {
