@@ -518,6 +518,7 @@ async function showLoader() {
     Date.now() - lastVisit > DAY;
 
   if (!shouldShow) {
+    document.body.classList.add("skip-loader");
     document.body.classList.add("loaded");
     return;
   }
