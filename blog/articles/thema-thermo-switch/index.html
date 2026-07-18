@@ -93,12 +93,11 @@
     <link rel="stylesheet" href="/blog/css/blog.css">
 
     <script>
-    const articleLoaderKey =
-    `articleLoaderShown:${location.pathname}`;
+    const ARTICLE_KEY = "articleLoader_thema-thermo-switch";
 
     if (
     Date.now() -
-        (Number(localStorage.getItem(articleLoaderKey)) || 0)
+        (Number(localStorage.getItem(ARTICLE_KEY)) || 0)
     < 24 * 60 * 60 * 1000
     ) {
     document.documentElement.classList.add("skip-loader");
@@ -139,78 +138,76 @@
     const DAY = 24 * 60 * 60 * 1000;
     const MIN_LOADING = 700;
 
-    const loaderKey =
-    `articleLoaderShown:${location.pathname}`;
-
     async function waitArticleImages() {
 
-    const images = [
-        ...document.querySelectorAll(".article img")
-    ];
+        const images = [
+            ...document.querySelectorAll("#article img")
+        ];
 
-    await Promise.all(
+        await Promise.all(
 
-        images.map(img => {
+            images.map(img => {
 
-        if (img.complete) {
-            return Promise.resolve();
-        }
+                if (img.complete)
+                    return Promise.resolve();
 
-        return new Promise(resolve => {
+                return new Promise(resolve => {
 
-            img.onload = resolve;
-            img.onerror = resolve;
+                    img.onload = resolve;
+                    img.onerror = resolve;
 
-        });
+                });
 
-        })
+            })
 
-    );
+        );
 
     }
 
     async function loadArticle() {
 
-    const lastVisit =
-        Number(localStorage.getItem(loaderKey)) || 0;
+        const shouldShow =
+            Date.now() -
+                (Number(localStorage.getItem(ARTICLE_KEY)) || 0)
+            > DAY;
 
-    const shouldShow =
-        Date.now() - lastVisit > DAY;
+        // markdown取得
+        const md = await fetch("./post.md")
+            .then(res => res.text());
 
-    const md = await fetch("./post.md")
-        .then(res => res.text());
+        // HTML生成
+        document.getElementById("article").innerHTML =
+            marked.parse(md);
 
-    document.getElementById("article").innerHTML =
-        marked.parse(md);
+        if (!shouldShow) {
 
-    if (!shouldShow) {
+            document.body.classList.add("skip-loader");
+            document.body.classList.add("loaded");
+            return;
 
-        document.body.classList.add("skip-loader");
+        }
+
+        // 画像読込＋最低表示時間
+        await Promise.all([
+
+            waitArticleImages(),
+
+            new Promise(resolve =>
+                setTimeout(resolve, MIN_LOADING)
+            )
+
+        ]);
+
+        localStorage.setItem(
+            ARTICLE_KEY,
+            Date.now()
+        );
+
         document.body.classList.add("loaded");
-        return;
 
     }
 
-    await Promise.all([
-
-        waitArticleImages(),
-
-        new Promise(resolve =>
-        setTimeout(resolve, MIN_LOADING)
-        )
-
-    ]);
-
-    localStorage.setItem(
-        loaderKey,
-        Date.now()
-    );
-
-    document.body.classList.add("loaded");
-
-    }
-
-    loadArticle();
+    window.addEventListener("load", loadArticle);
 
     </script>
 
