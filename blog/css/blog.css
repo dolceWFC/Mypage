@@ -19,29 +19,103 @@ body {
   min-height: 100vh;
 }
 
-#loadingScreen{
-  position:fixed;
-  inset:0;
-  z-index:9999;
+/* =========================
+   Loader
+========================= */
 
-  display:flex;
-  justify-content:center;
-  align-items:center;
+#loader{
+    position:fixed;
+    inset:0;
 
-  background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-  transition:
-    opacity .4s,
-    visibility .4s;
+    background:#000;
+
+    z-index:9999;
+
+    transition:
+        opacity .7s ease,
+        visibility .7s ease;
 }
 
-#loadingScreen.hide{
-  opacity:0;
-  visibility:hidden;
+.loader-content{
+    text-align:center;
 }
 
-.skip-loader #loadingScreen{
-  display:none;
+.loader-content h1{
+
+    font-size:1.5rem;
+
+    font-weight:400;
+
+    letter-spacing:.18em;
+
+    color:rgba(255,255,255,.92);
+
+}
+
+.loader-bar{
+
+    width:220px;
+    height:2px;
+
+    margin:22px auto 0;
+
+    background:rgba(255,255,255,.15);
+
+    overflow:hidden;
+}
+
+.loader-progress{
+
+    width:40%;
+
+    height:100%;
+
+    background:white;
+
+    animation:loading 1.2s infinite linear;
+}
+
+@keyframes loading{
+
+    from{
+        transform:translateX(-100%);
+    }
+
+    to{
+        transform:translateX(350%);
+    }
+
+}
+
+body.loaded #loader{
+
+    opacity:0;
+    visibility:hidden;
+
+}
+
+body:not(.loaded) > *:not(#loader){
+    visibility:hidden;
+}
+
+body.loaded > *:not(#loader){
+    visibility:visible;
+}
+
+body.skip-loader #loader{
+    transition:none;
+}
+
+html.skip-loader #loader{
+    display:none;
+}
+
+html.skip-loader > body > *:not(#loader){
+    visibility:visible;
 }
 
 .blog-container {
