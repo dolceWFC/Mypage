@@ -162,5 +162,16 @@
       "テーマ",
       "整備"
     ]
+  },{
+    "slug": "pokecha-001",
+    "title": "ポケモンチャンピオンズ<br>マンスリーチャレンジ7月感想戦",
+    "date": "2026-07-27",
+    "summary": "久しぶりに詰めてやったけど...",
+    "cover": "/blog/images/pokecha-001/cover.jpeg",
+    "file": "./blog/posts/pokecha-001.md",
+    "tags": [
+      "ポケモンチャンピオンズ",
+      "構築記事"
+    ]
   }
 ]
