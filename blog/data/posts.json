@@ -177,5 +177,17 @@
       "ポケモンチャンピオンズ",
       "構築記事"
     ]
+  },
+  {
+    "slug": "ribbonhero-001",
+    "title": "鑑賞感想文<br>THE RIBBON HERO編",
+    "date": "2026-08-10",
+    "summary": "ネトフリで配信されている「THE RIBBON HERO」を観た感想です",
+    "cover": "/blog/images/ribbonhero-001/cover.jpg",
+    "file": "./blog/posts/ribbonhero-001.md",
+    "tags": [
+      "THE RIBBON HERO",
+      "雑記"
+    ]
   }
 ]
