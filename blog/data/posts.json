@@ -189,5 +189,17 @@
       "THE RIBBON HERO",
       "雑記"
     ]
+  },
+  {
+    "slug": "madomagi-001",
+    "title": "鑑賞感想文<br>魔法少女まどか☆マギカ編",
+    "date": "2026-08-26",
+    "summary": "まどマギを約10年振りに再履修",
+    "cover": "/blog/images/madomagi-001/cover.jpg",
+    "file": "./blog/posts/madomagi-001.md",
+    "tags": [
+      "まどマギ",
+      "雑記"
+    ]
   }
 ]
