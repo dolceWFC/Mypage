@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>鑑賞感想文 魔法少女まどか☆マギカ編 | Dolce-Rhea</title>
+
+    <meta name="description" content="まどマギを約10年振りに再履修">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="鑑賞感想文 魔法少女まどか☆マギカ編">
+    <meta property="og:description" content="まどマギを約10年振りに再履修">
+    <meta property="og:url" content="https://dolce-rhea.live/blog/articles/madomagi-001/">
+    <meta property="og:image" content="https://dolce-rhea.live/blog/images/madomagi-001/cover.jpg">
+    <meta property="article:published_time" content="2026-08-26T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-08-26T00:00:00+09:00">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="鑑賞感想文 魔法少女まどか☆マギカ編">
+    <meta name="twitter:description" content="まどマギを約10年振りに再履修">
+    <meta name="twitter:image" content="https://dolce-rhea.live/blog/images/madomagi-001/cover.jpg">
+
+        <!-- Structured Data -->
+    <script type="application/ld+json">
+        {
+            "@context":"https://schema.org",
+            "@type":"BlogPosting",
+
+            "headline":"鑑賞感想文 魔法少女まどか☆マギカ編",
+
+            "description":"まどマギを約10年振りに再履修",
+
+            "image":"https://dolce-rhea.live/blog/images/madomagi-001/cover.jpg",
+
+            "url":"https://dolce-rhea.live/blog/articles/madomagi-001/",
+
+            "mainEntityOfPage":{
+                "@type":"WebPage",
+                "@id":"https://dolce-rhea.live/blog/articles/madomagi-001/"
+            },
+
+            "datePublished":"2026-08-26T00:00:00+09:00",
+
+            "dateModified":"2026-08-26T00:00:00+09:00",
+
+            "inLanguage":"ja",
+
+            "author":{
+                "@type":"Person",
+                "name":"Dolce",
+                "url":"https://dolce-rhea.live/"
+            },
+
+            "publisher":{
+                "@type":"Person",
+                "name":"Dolce",
+                "url":"https://dolce-rhea.live/"
+            }
+        }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org",
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+            {
+            "@type":"ListItem",
+            "position":1,
+            "name":"Dolce-Rhea",
+            "item":"https://dolce-rhea.live/"
+            },
+            {
+            "@type":"ListItem",
+            "position":2,
+            "name":"Blog",
+            "item":"https://dolce-rhea.live/blog/"
+            },
+            {
+            "@type":"ListItem",
+            "position":3,
+            "name":"鑑賞感想文 魔法少女まどか☆マギカ編",
+            "item":"https://dolce-rhea.live/blog/articles/madomagi-001/"
+            }
+        ]
+    }
+    </script>
+
+    <link rel="canonical" href="https://dolce-rhea.live/blog/articles/madomagi-001/">
+
+    <link rel="stylesheet" href="/blog/css/blog.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script>
+    const ARTICLE_KEY = "articleLoader_madomagi-001";
+
+    if (
+    Date.now() -
+        (Number(localStorage.getItem(ARTICLE_KEY)) || 0)
+    < 24 * 60 * 60 * 1000
+    ) {
+    document.documentElement.classList.add("skip-loader");
+    }
+    </script>
+</head>
+
+<body>
+    <div id="loader">
+        <div class="loader-content">
+
+            <h1>Dolce-Rhea</h1>
+
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="blog-container">
+
+        <header class="blog-header">
+            <a href="/blog/" class="back-link">← Blog</a>
+
+            <div class="post-hero">
+                <p class="post-date">2026-08-26</p>
+                <h1 class="post-title">鑑賞感想文<br>魔法少女まどか☆マギカ編</h1>
+            </div>
+        </header>
+
+        <article id="article" class="article"></article>
+
+    </div>
+
+    <script>
+
+    const DAY = 24 * 60 * 60 * 1000;
+    const MIN_LOADING = 700;
+
+    async function waitArticleImages() {
+
+        const images = [
+            ...document.querySelectorAll("#article img")
+        ];
+
+        await Promise.all(
+
+            images.map(img => {
+
+                if (img.complete)
+                    return Promise.resolve();
+
+                return new Promise(resolve => {
+
+                    img.onload = resolve;
+                    img.onerror = resolve;
+
+                });
+
+            })
+
+        );
+
+    }
+
+    async function loadArticle() {
+
+        const shouldShow =
+            Date.now() -
+                (Number(localStorage.getItem(ARTICLE_KEY)) || 0)
+            > DAY;
+
+        // markdown取得
+        const md = await fetch("./post.md")
+            .then(res => res.text());
+
+        // HTML生成
+        document.getElementById("article").innerHTML =
+            marked.parse(md);
+
+        if (!shouldShow) {
+
+            document.body.classList.add("skip-loader");
+            document.body.classList.add("loaded");
+            return;
+
+        }
+
+        // 画像読込＋最低表示時間
+        await Promise.all([
+
+            waitArticleImages(),
+
+            new Promise(resolve =>
+                setTimeout(resolve, MIN_LOADING)
+            )
+
+        ]);
+
+        localStorage.setItem(
+            ARTICLE_KEY,
+            Date.now()
+        );
+
+        document.body.classList.add("loaded");
+
+    }
+
+    window.addEventListener("load", loadArticle);
+
+    </script>
+
+</body>
+
+</html>
