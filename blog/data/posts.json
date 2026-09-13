@@ -201,5 +201,16 @@
       "まどマギ",
       "雑記"
     ]
+  },
+  {
+    "slug": "diary-001",
+    "title": "TNR飲みでした",
+    "date": "2026-09-13",
+    "summary": "日記。",
+    "cover": "/blog/images/diary-001/cover.jpg",
+    "file": "./blog/posts/diary-001.md",
+    "tags": [
+      "雑記"
+    ]
   }
 ]
